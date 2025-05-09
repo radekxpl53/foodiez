@@ -17,7 +17,7 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage = primaryStage;
-        stage.setTitle("Restauracja");
+        stage.setTitle("System Zarządzania Restauracją");
         stage.setScene(scene);
         stage.show();
     }

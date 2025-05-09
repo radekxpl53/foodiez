@@ -10,12 +10,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import org.hibernate.query.Query;
 import org.radek.restauracja.*;
 import org.radek.restauracja.classes.Database;
-import org.radek.restauracja.classes.InfoAlert;
-import org.radek.restauracja.classes.Pracownik;
-import org.radek.restauracja.exceptions.EmptyStringException;
-import org.radek.restauracja.exceptions.WrongPasswordException;
+import javafx.scene.input.MouseEvent;
+import org.radek.restauracja.exceptions.*;
+import org.radek.restauracja.classes.*;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,49 +29,78 @@ public class MainController implements Initializable {
     public Button loginBtn;
     @FXML
     private Label currentDateLabel;
-
     @FXML
     private TextField loginField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private Label errorLabel;
 
     private final LocalDate date = LocalDate.now();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         currentDateLabel.setText(String.valueOf(date));
+        errorLabel.setVisible(false);
     }
 
-    public void userLogin(ActionEvent actionEvent) {
-        String login, password, fetchedPassword = "", fetchedRole = "";
-        Pracownik pracownik = null;
+    public void userLogin(ActionEvent actionEvent) throws IOException {
+        String login = "", password = "";
         try {
             login = loginField.getText();
             password = passwordField.getText();
-            if (login.isEmpty()) throw new EmptyStringException();
-            fetchedPassword = Database.getSession().createQuery("SELECT haslo FROM pracownik WHERE login = '" + login +"'").getSingleResult().toString();
-            System.out.println(fetchedPassword);
-            fetchedRole = Database.getSession().createQuery("SELECT rola FROM pracownik WHERE login = '" + login + "'").getSingleResult().toString();
-            if(fetchedPassword.equals(password)) {
-                if (fetchedRole.equals("admin")) {
-                    System.out.println(fetchedRole);
+
+            if (login.isEmpty() || password.isEmpty()) {
+                throw new EmptyFieldException("login lub hasło");
+            }
+
+            Query pracownikQuery = Database.getSession().createQuery("FROM pracownik WHERE login = :login");
+            pracownikQuery.setParameter("login", login);
+
+            try {
+                Object pracownik = pracownikQuery.getSingleResult();
+                String dbPassword = ((Pracownik) pracownik).getHaslo();
+                String role = ((Pracownik) pracownik).getRola();
+
+                if (!dbPassword.equals(password)) throw new WrongPasswordException();
+
+                if (role.equals("admin")) {
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("admin-pane.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
                     MainApplication.switchScene(scene);
-                } else {
-                    System.out.println(fetchedRole);
-                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("user-pane.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    MainApplication.switchScene(scene);
                 }
-            } else throw new WrongPasswordException();
-        } catch (EmptyStringException e) {
-            InfoAlert.emptyFieldAlert();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (NoResultException | WrongPasswordException e) {
-            InfoAlert.noUserAlert();
-        }
+                return;
+            } catch (NoResultException ignored) {}
 
+            Query klientQuery = Database.getSession().createQuery("FROM klient WHERE login = :login");
+            klientQuery.setParameter("login", login);
+
+            Object klient = klientQuery.getSingleResult();
+            String dbPassword = ((Klient) klient).getHaslo();
+
+            if (!dbPassword.equals(password)) throw new WrongPasswordException();
+
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("user-pane.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            MainApplication.switchScene(scene);
+
+        } catch (EmptyFieldException e) {
+            errorLabel.setText(e.getMessage());
+            errorLabel.setVisible(true);
+        } catch (WrongPasswordException | NoResultException e) {
+            errorLabel.setText("Zły login lub hasło!");
+            errorLabel.setVisible(true);
+        } catch (Exception e) {
+            errorLabel.setText("Błąd systemu.");
+            errorLabel.setVisible(true);
+            e.printStackTrace();
+        }
+    }
+
+
+    public void startUserRegister(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("register-pane.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        MainApplication.switchScene(scene);
     }
 }
