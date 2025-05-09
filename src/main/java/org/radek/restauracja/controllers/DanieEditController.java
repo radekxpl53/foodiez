@@ -2,6 +2,7 @@ package org.radek.restauracja.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class DanieEditController implements Initializable {
+    public Button unselectBtn;
     @FXML
     private TableView<Danie> daniaTable;
     @FXML
@@ -55,6 +57,8 @@ public class DanieEditController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idField.setDisable(true);
+
+        unselectBtn.setOnAction((ActionEvent e) -> clearSelectedItem());
 
 
         //inicjalizacja kolumn
@@ -112,6 +116,14 @@ public class DanieEditController implements Initializable {
         kategoriaChoice.setValue(selectedDanie.getKategoria());
     }
 
+    public void clearSelectedItem() {
+        idField.setText("");
+        nazwaField.setText("");
+        opisArea.setText("");
+        cenaField.setText("");
+        kategoriaChoice.setValue("");
 
+        daniaTable.getSelectionModel().clearSelection();
+    }
 
 }
