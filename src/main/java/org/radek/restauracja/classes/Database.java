@@ -1,5 +1,4 @@
-package org.radek.restauracja;
-import org.radek.restauracja.Danie;
+package org.radek.restauracja.classes;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -47,7 +46,8 @@ public class Database {
     public static void connect() {
         config = new Configuration()
                 .configure()
-                .addAnnotatedClass(org.radek.restauracja.Danie.class);
+                .addAnnotatedClass(Danie.class)
+                .addAnnotatedClass(Pracownik.class);
 
         factory = config.buildSessionFactory();
 

@@ -1,18 +1,17 @@
-package org.radek.restauracja;
+package org.radek.restauracja.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.TextArea;
 
 import javafx.scene.input.MouseEvent;
+import org.radek.restauracja.classes.Danie;
+import org.radek.restauracja.classes.Database;
+import org.radek.restauracja.classes.InfoAlert;
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -81,8 +80,8 @@ public class DanieEditController implements Initializable {
             Database.addToDatabase(danie);
 
             setDaniaToTable();
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage() + "Pole nie może być puste!");
+        } catch (NumberFormatException e) {
+            InfoAlert.emptyFieldAlert();
         }
     }
 
@@ -98,8 +97,8 @@ public class DanieEditController implements Initializable {
             Database.editItemDatabase(danie);
 
             setDaniaToTable();
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage() + "Pole nie może być puste!");
+        } catch (NumberFormatException e) {
+            InfoAlert.emptyFieldAlert();
         }
     }
 
@@ -112,5 +111,7 @@ public class DanieEditController implements Initializable {
         cenaField.setText(selectedDanie.getCena() + "");
         kategoriaChoice.setValue(selectedDanie.getKategoria());
     }
+
+
 
 }
