@@ -66,4 +66,12 @@ public class Database {
 
         transaction.commit();
     }
+
+    public static void editItemDatabase(Object object) {
+        transaction = session.beginTransaction();
+
+        session.merge(object);
+
+        transaction.commit();
+    }
 }

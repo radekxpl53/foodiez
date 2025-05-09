@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="initial commit" />
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/DanieEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/DanieEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +32,12 @@
     &quot;assignee&quot;: &quot;radekxpl53&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/radekxpl53/restauracja.git&quot;,
-    &quot;accountId&quot;: &quot;520b4204-1af3-45a6-b2a1-70aace9db126&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/radekxpl53/restauracja.git",
+    "accountId": "08cb037d-a9d1-4a19-a143-784e88e74675"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -55,6 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -101,7 +107,7 @@
       <workItem from="1746734376668" duration="5435000" />
       <workItem from="1746783924992" duration="4897000" />
       <workItem from="1746788946119" duration="399000" />
-      <workItem from="1746789356282" duration="159000" />
+      <workItem from="1746789356282" duration="2625000" />
     </task>
     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
       <option name="closed" value="true" />

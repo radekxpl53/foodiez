@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,7 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.DanieEditController">
    <children>
-      <TableView fx:id="daniaTable" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="458.0">
+      <TableView fx:id="daniaTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="372.0" prefWidth="458.0">
         <columns>
             <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="nazwaCol" prefWidth="75.0" text="Nazwa" />
@@ -28,13 +29,13 @@
          <children>
             <TextField fx:id="idField" promptText="Id" />
             <TextField fx:id="nazwaField" promptText="Nazwa" />
-            <TextField fx:id="opisField" promptText="Opis" />
+            <TextArea fx:id="opisArea" prefHeight="200.0" prefWidth="200.0" promptText="Opis" />
             <TextField fx:id="cenaField" promptText="Cena" />
             <ChoiceBox fx:id="kategoriaChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="181.0" />
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" text="Dodaj" />
-                  <Button mnemonicParsing="false" text="Edytuj" />
+                  <Button mnemonicParsing="false" onAction="#addDanie" text="Dodaj" />
+                  <Button mnemonicParsing="false" onAction="#editDanie" text="Edytuj" />
                </children>
             </HBox>
          </children>
