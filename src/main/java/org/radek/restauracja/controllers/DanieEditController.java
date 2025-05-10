@@ -73,6 +73,7 @@ public class DanieEditController implements Initializable {
         setDaniaToTable();
     }
 
+
     public void addDanie(ActionEvent actionEvent) {
         try {
             Danie danie = new Danie();

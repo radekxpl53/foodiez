@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.radek.restauracja.classes.Database;
 import org.radek.restauracja.classes.Klient;
+import org.radek.restauracja.classes.Security;
 import org.radek.restauracja.exceptions.*;
 
 import java.net.URL;
@@ -32,26 +33,32 @@ public class RegisterController implements Initializable {
     @FXML
     private TextField adresField;
 
+    private String getFieldValue(TextField field, String fieldName) throws EmptyFieldException {
+        String value = field.getText();
+        if (value == null || value.trim().isEmpty()) {
+            throw new EmptyFieldException(fieldName);
+        }
+        return value.trim();
+    }
+
 
     public void userRegister(ActionEvent actionEvent) {
-        Klient klient = new Klient();
-        String imie = "", nazwisko = "", email = "", adres = "", telefon = "", login = "", haslo = "";
         try {
-            login = loginField.getText(); if (login.isEmpty()) throw new EmptyFieldException("login"); klient.setLogin(login);
-            haslo = hasloField.getText(); if (haslo.isEmpty()) throw new EmptyFieldException("haslo"); klient.setHaslo(haslo);
-            imie = imieField.getText(); if (imie.isEmpty()) throw new EmptyFieldException("imie"); klient.setImie(imie);
-            nazwisko = nazwiskoField.getText(); if (nazwisko.isEmpty()) throw new EmptyFieldException("nazwisko"); klient.setNazwisko(nazwisko);
-            email = emailField.getText(); if (email.isEmpty()) throw new EmptyFieldException("email"); klient.setEmail(email);
-            telefon = telField.getText(); if (telefon.isEmpty()) throw new EmptyFieldException("telefon"); klient.setTelefon(telefon);
-            adres = adresField.getText(); if (adres.isEmpty()) throw new EmptyFieldException("adres"); klient.setAdres(adres);
+            Klient klient = new Klient();
+            klient.setLogin(getFieldValue(loginField, "login"));
+            klient.setHaslo(Security.hashPasswd(getFieldValue(hasloField, "haslo")));
+            klient.setImie(getFieldValue(imieField, "imie"));
+            klient.setNazwisko(getFieldValue(nazwiskoField, "nazwisko"));
+            klient.setEmail(getFieldValue(emailField, "email"));
+            klient.setTelefon(getFieldValue(telField, "telefon"));
+            klient.setAdres(getFieldValue(adresField, "adres"));
 
             Database.addToDatabase(klient);
             errorLabel.setVisible(false);
         } catch (EmptyFieldException e) {
-            errorLabel.setVisible(true);
             errorLabel.setText(e.getMessage());
+            errorLabel.setVisible(true);
         }
-
     }
 
     @Override

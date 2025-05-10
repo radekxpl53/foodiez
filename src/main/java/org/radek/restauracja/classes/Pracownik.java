@@ -3,7 +3,6 @@ package org.radek.restauracja.classes;
 import jakarta.persistence.*;
 
 @Entity(name = "pracownik")
-@Table(name = "pracownik")
 public class Pracownik extends Uzytkownik{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

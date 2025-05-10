@@ -21,7 +21,7 @@
          <children>
             <Label text="logowanie" />
             <TextField fx:id="loginField" promptText="login" />
-            <PasswordField fx:id="passwordField" text="haslo" />
+            <PasswordField fx:id="passwordField" promptText="hasło" />
             <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userLogin" text="Zaloguj" textAlignment="CENTER" />
             <Label fx:id="errorLabel" text="label" textFill="RED" />
             <Label onMouseClicked="#startUserRegister" text="Nie masz konta? Zarejestruj się!" textFill="#003cff" underline="true" />

@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="Usprawniony proces rejestracji i logowania.">
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="dodane odznaczanie dań.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Security.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Pracownik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Pracownik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-pane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Exception" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -62,6 +72,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ricot/IdeaProjects/restauracja/src/main/resources/org/radek/restauracja&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,6 +86,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources\META-INF" />
       <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources" />
@@ -112,7 +126,9 @@
       <workItem from="1746788946119" duration="399000" />
       <workItem from="1746789356282" duration="13765000" />
       <workItem from="1746805087696" duration="185000" />
-      <workItem from="1746810801382" duration="7748000" />
+      <workItem from="1746810801382" duration="7952000" />
+      <workItem from="1746868366692" duration="1286000" />
+      <workItem from="1746872942931" duration="3494000" />
     </task>
     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
       <option name="closed" value="true" />
@@ -154,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746815860543</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="dodane odznaczanie dań.">
+      <option name="closed" value="true" />
+      <created>1746826644635</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746826644635</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +204,7 @@
     <MESSAGE value="zmiany umożliwiające dodawanie i edycję pól dań w bazie danych." />
     <MESSAGE value="Dodane wyjątki umożliwiające wykrywanie będów związanych z logowanie. Alerty Popup informujące o błędach. Panel logowania (jeszcze bez rejestracji). Sprawdzanie zgodności logowania z bazą danych (jeszcze bez szyfrowania). Dodany panel administracyjy TabPane z zakładkami." />
     <MESSAGE value="Usprawniony proces rejestracji i logowania." />
-    <option name="LAST_COMMIT_MESSAGE" value="Usprawniony proces rejestracji i logowania." />
+    <MESSAGE value="dodane odznaczanie dań." />
+    <option name="LAST_COMMIT_MESSAGE" value="dodane odznaczanie dań." />
   </component>
 </project>

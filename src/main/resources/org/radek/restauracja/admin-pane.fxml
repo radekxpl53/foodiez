@@ -7,9 +7,7 @@
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="431.0" prefWidth="706.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Pracownicy">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-      </content>
+      <fx:include source="pracownicy-table-edit.fxml"/>
     </Tab>
     <Tab text="Menu">
       <fx:include source="dania-table-edit.fxml" />

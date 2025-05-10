@@ -5,6 +5,7 @@ module org.radek.restauracja {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires java.desktop;
+    requires bcrypt;
 
     opens org.radek.restauracja to javafx.fxml, org.hibernate.orm.core;
     exports org.radek.restauracja;

@@ -62,12 +62,11 @@ public class MainController implements Initializable {
                 String dbPassword = ((Pracownik) pracownik).getHaslo();
                 String role = ((Pracownik) pracownik).getRola();
 
-                if (!dbPassword.equals(password)) throw new WrongPasswordException();
+                if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
                 if (role.equals("admin")) {
-                    FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("admin-pane.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load());
-                    MainApplication.switchScene(scene);
+                    SceneController sceneController = new SceneController();
+                    sceneController.switchScene("admin-pane.fxml");
                 }
                 return;
             } catch (NoResultException ignored) {}
@@ -78,11 +77,10 @@ public class MainController implements Initializable {
             Object klient = klientQuery.getSingleResult();
             String dbPassword = ((Klient) klient).getHaslo();
 
-            if (!dbPassword.equals(password)) throw new WrongPasswordException();
+            if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("user-pane.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            MainApplication.switchScene(scene);
+            SceneController sceneController = new SceneController();
+            sceneController.switchScene("user-pane.fxml");
 
         } catch (EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
@@ -97,10 +95,8 @@ public class MainController implements Initializable {
         }
     }
 
-
     public void startUserRegister(MouseEvent mouseEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("register-pane.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        MainApplication.switchScene(scene);
+        SceneController sceneController = new SceneController();
+        sceneController.switchScene("register-pane.fxml");
     }
 }
