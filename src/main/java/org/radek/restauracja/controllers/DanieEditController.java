@@ -2,7 +2,6 @@ package org.radek.restauracja.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -43,23 +42,11 @@ public class DanieEditController implements Initializable {
     @FXML
     private ChoiceBox<String> kategoriaChoice;
 
-
-    public void setDaniaToTable() {
-        //pobranie dań z bazy danych i przypisanie do TableView;
-        daniaTable.getItems().clear();
-
-        List<Danie> result = Database.getSession().createQuery("FROM danie", Danie.class).getResultList();
-        daniaTable.getItems().addAll(FXCollections.observableList(result));
-    }
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idField.setDisable(true);
 
         unselectBtn.setOnAction((ActionEvent e) -> clearSelectedItem());
-
 
         //inicjalizacja kolumn
         idCol.setCellValueFactory(new PropertyValueFactory<Danie, Integer>("id"));
@@ -73,6 +60,13 @@ public class DanieEditController implements Initializable {
         setDaniaToTable();
     }
 
+    public void setDaniaToTable() {
+        //pobranie dań z bazy danych i przypisanie do TableView;
+        daniaTable.getItems().clear();
+
+        List<Danie> result = Database.getSession().createQuery("FROM danie", Danie.class).getResultList();
+        daniaTable.getItems().addAll(FXCollections.observableList(result));
+    }
 
     public void addDanie(ActionEvent actionEvent) {
         try {
@@ -104,6 +98,19 @@ public class DanieEditController implements Initializable {
             setDaniaToTable();
         } catch (NumberFormatException e) {
             InfoAlert.emptyFieldAlert();
+        }
+    }
+
+    public void removeDanie(ActionEvent actionEvent) {
+        try {
+            Danie selectedDanie = daniaTable.getSelectionModel().getSelectedItem();
+
+            Database.removeFromDatabase(selectedDanie);
+
+            setDaniaToTable();
+            clearSelectedItem();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 

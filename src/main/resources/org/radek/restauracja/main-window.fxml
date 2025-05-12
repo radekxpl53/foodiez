@@ -11,12 +11,12 @@
 
 <AnchorPane minHeight="400" minWidth="600" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.MainController">
    <children>
-      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="90.0" text="Witaj!" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <Label alignment="TOP_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="90.0" text="Witaj!" textFill="#949494" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="currentDateLabel" alignment="TOP_RIGHT" layoutX="510.0" layoutY="14.0" prefHeight="19.0" prefWidth="76.0" text="Label" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="currentDateLabel" alignment="TOP_RIGHT" layoutX="510.0" layoutY="14.0" prefHeight="19.0" prefWidth="76.0" text="Label" textFill="#949494" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <VBox alignment="CENTER" fillWidth="false" layoutX="193.0" layoutY="100.0" minHeight="200.0" minWidth="166.0" prefHeight="200.0" prefWidth="214.0" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="100.0">
          <children>
             <Label text="logowanie" />

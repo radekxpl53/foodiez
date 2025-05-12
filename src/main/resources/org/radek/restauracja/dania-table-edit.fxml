@@ -33,10 +33,11 @@
             <TextArea fx:id="opisArea" prefHeight="200.0" prefWidth="200.0" promptText="Opis" />
             <TextField fx:id="cenaField" promptText="Cena" />
             <ChoiceBox fx:id="kategoriaChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="181.0" />
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="30.0">
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addDanie" text="Dodaj" />
                   <Button mnemonicParsing="false" onAction="#editDanie" text="Edytuj" />
+                  <Button mnemonicParsing="false" onAction="#removeDanie" text="Usuń" />
                </children>
             </HBox>
          </children>

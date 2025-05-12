@@ -68,6 +68,14 @@ public class Database {
         transaction.commit();
     }
 
+    public static void removeFromDatabase(Object object) {
+        transaction = session.beginTransaction();
+
+        session.remove(object);
+
+        transaction.commit();
+    }
+
     public static void editItemDatabase(Object object) {
         transaction = session.beginTransaction();
 

@@ -1,6 +1,7 @@
 package org.radek.restauracja.classes;
 
 import jakarta.persistence.*;
+import org.postgresql.shaded.com.ongres.stringprep.Stringprep;
 
 @Entity(name = "pracownik")
 public class Pracownik extends Uzytkownik{
@@ -8,6 +9,8 @@ public class Pracownik extends Uzytkownik{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String rola;
+
+    public static String[] role = {"admin", "kierowca", "obsługa", "kucharz"};
 
     public int getId() {
         return id;

@@ -6,6 +6,8 @@ module org.radek.restauracja {
     requires java.naming;
     requires java.desktop;
     requires bcrypt;
+    requires org.postgresql.jdbc;
+    requires org.apache.commons.validator;
 
     opens org.radek.restauracja to javafx.fxml, org.hibernate.orm.core;
     exports org.radek.restauracja;

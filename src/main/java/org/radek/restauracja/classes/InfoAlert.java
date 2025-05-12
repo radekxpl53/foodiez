@@ -16,4 +16,11 @@ public class InfoAlert {
         alert.setContentText("Błędny login lub hasło!");
         alert.showAndWait();
     }
+
+    public static void emptySelectionAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Błąd!");
+        alert.setContentText("Nie wybrano nic z listy!");
+        alert.showAndWait();
+    }
 }
