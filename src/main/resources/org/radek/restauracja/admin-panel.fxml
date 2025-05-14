@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane prefHeight="553.0" prefWidth="920.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Pracownicy">
+      <fx:include source="pracownicy-table-edit.fxml" />
+    </Tab>
+    <Tab text="Menu">
+      <fx:include source="dania-table-edit.fxml" />
+    </Tab>
+  </tabs>
+</TabPane>

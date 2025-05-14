@@ -3,15 +3,12 @@ package org.radek.restauracja.controllers;
 import jakarta.persistence.NoResultException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import org.hibernate.query.Query;
-import org.radek.restauracja.*;
 import org.radek.restauracja.classes.Database;
 import javafx.scene.input.MouseEvent;
 import org.radek.restauracja.exceptions.*;
@@ -66,7 +63,7 @@ public class MainController implements Initializable {
 
                 if (role.equals("admin")) {
                     SceneController sceneController = new SceneController();
-                    sceneController.switchScene("admin-pane.fxml");
+                    sceneController.switchScene("admin-panel.fxml");
                 }
                 return;
             } catch (NoResultException ignored) {}
@@ -80,7 +77,7 @@ public class MainController implements Initializable {
             if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
             SceneController sceneController = new SceneController();
-            sceneController.switchScene("user-pane.fxml");
+            sceneController.switchScene("user-panel.fxml");
 
         } catch (EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
@@ -97,6 +94,6 @@ public class MainController implements Initializable {
 
     public void startUserRegister(MouseEvent mouseEvent) throws IOException {
         SceneController sceneController = new SceneController();
-        sceneController.switchScene("register-pane.fxml");
+        sceneController.switchScene("org/radek/restauracja/register-panel.fxml");
     }
 }

@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="419.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.PracownikEditController">
    <children>
-      <TableView fx:id="pracownicyTable" layoutX="14.0" layoutY="14.0" prefHeight="391.0" prefWidth="458.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="14.0">
+      <TableView fx:id="pracownicyTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="391.0" prefWidth="458.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="14.0">
         <columns>
             <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="imieCol" prefWidth="75.0" text="Imie" />
@@ -43,7 +43,7 @@
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addPracownik" text="Dodaj" />
-                  <Button mnemonicParsing="false" text="Edytuj" />
+                  <Button mnemonicParsing="false" onAction="#editPracownik" text="Edytuj" />
                   <Button mnemonicParsing="false" text="Usuń" />
                </children>
             </HBox>

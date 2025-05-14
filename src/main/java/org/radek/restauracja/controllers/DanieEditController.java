@@ -117,10 +117,10 @@ public class DanieEditController implements Initializable {
     public void selectItemToEdit(MouseEvent mouseEvent) {
         Danie selectedDanie = daniaTable.getSelectionModel().getSelectedItem();
 
-        idField.setText(selectedDanie.getId() + "");
+        idField.setText(String.valueOf(selectedDanie.getId()));
         nazwaField.setText(selectedDanie.getNazwa());
         opisArea.setText(selectedDanie.getOpis());
-        cenaField.setText(selectedDanie.getCena() + "");
+        cenaField.setText(String.valueOf(selectedDanie.getCena()));
         kategoriaChoice.setValue(selectedDanie.getKategoria());
     }
 

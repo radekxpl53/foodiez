@@ -3,26 +3,30 @@ package org.radek.restauracja.controllers;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.chart.PieChart;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.radek.restauracja.classes.Database;
 import org.radek.restauracja.classes.InfoAlert;
 import org.radek.restauracja.classes.Pracownik;
-import org.radek.restauracja.classes.Security;
-import org.radek.restauracja.exceptions.EmptyFieldException;
 import org.radek.restauracja.exceptions.WrongEmailException;
-import org.radek.restauracja.exceptions.WrongPasswordException;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PracownikEditController implements Initializable {
+
+    Pracownik selectedPracownik;
 
     @FXML
     private TableView<Pracownik> pracownicyTable;
@@ -95,6 +99,39 @@ public class PracownikEditController implements Initializable {
         pracownicyTable.getSelectionModel().clearSelection();
     }
 
+    public void selectItemToEdit(MouseEvent mouseEvent) {
+        selectedPracownik = pracownicyTable.getSelectionModel().getSelectedItem();
+
+        idField.setText(String.valueOf(selectedPracownik.getId()));
+        imieField.setText(selectedPracownik.getImie());
+        nazwiskoField.setText(selectedPracownik.getNazwisko());
+        emailField.setText(selectedPracownik.getEmail());
+        telField.setText(selectedPracownik.getTelefon());
+        rolaChoice.setValue(selectedPracownik.getRola());
+    }
+
+    public void editPracownik(ActionEvent actionEvent) {
+        try {
+            Pracownik pracownik = Database.getSession().get(Pracownik.class, selectedPracownik.getId());
+
+            if (pracownik != null) {
+                pracownik.setImie(imieField.getText());
+                pracownik.setNazwisko(nazwiskoField.getText());
+                pracownik.setEmail(emailField.getText());
+                pracownik.setTelefon(telField.getText());
+                pracownik.setRola(rolaChoice.getValue());
+                Database.editItemDatabase(pracownik);
+            }
+
+            setPracownicyToTable();
+        } catch (NumberFormatException e) {
+            InfoAlert.emptyFieldAlert();
+        } catch (WrongEmailException e) {
+            errorLabel.setText(e.getMessage());
+            errorLabel.setVisible(true);
+        }
+    }
+
     public void addPracownik(ActionEvent actionEvent) {
         try {
             Pracownik pracownik = new Pracownik();
@@ -117,37 +154,18 @@ public class PracownikEditController implements Initializable {
         }
     }
 
-    public void setLoginAndPasswd(ActionEvent actionEvent) {
-        if (!pracownicyTable.getSelectionModel().isEmpty()) {
-            Pracownik selectedPracownik = pracownicyTable.getSelectionModel().getSelectedItem();
+    public void setLoginAndPasswd(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/radek/restauracja/set-up-login-password.fxml"));
+        Parent root = fxmlLoader.load();
+        SetUpPracownikController controller = fxmlLoader.getController();
 
-            TextInputDialog loginInputDialog = new TextInputDialog();
-            loginInputDialog.setTitle("Login dla " + selectedPracownik.getImie() + " " + selectedPracownik.getNazwisko());
-            loginInputDialog.setHeaderText("Wprowadź login");
-            loginInputDialog.setContentText("login:");
+        controller.setTempPracownik(selectedPracownik);
+        Stage stage = new Stage();
 
-            Optional<String> resultLogin = loginInputDialog.showAndWait();
+        stage.setTitle("Przypisz login i hasło");
+        stage.initModality(Modality.NONE);
+        stage.setScene(new Scene(root));
 
-            if (resultLogin.isPresent()) {
-                TextInputDialog passwordInputDialog = new TextInputDialog();
-                passwordInputDialog.setTitle("Hasło dla " + selectedPracownik.getImie() + " " + selectedPracownik.getNazwisko());
-                passwordInputDialog.setHeaderText("Wprowadź hasło");
-                passwordInputDialog.setContentText("hasło:");
-
-                Optional<String> resultPassword = passwordInputDialog.showAndWait();
-
-                if (resultPassword.isPresent()) {
-                    selectedPracownik.setLogin(resultLogin.get());
-                    selectedPracownik.setHaslo(Security.hashPasswd(resultPassword.get()));
-
-                    Database.editItemDatabase(selectedPracownik);
-                } else {
-                    InfoAlert.emptySelectionAlert();
-                }
-            }
-        } else {
-            InfoAlert.emptySelectionAlert();
-        }
-
+        stage.show();
     }
 }
