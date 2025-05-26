@@ -11,5 +11,8 @@
     <Tab text="Menu">
       <fx:include source="dania-table-edit.fxml" />
     </Tab>
+    <Tab text="Zamówienia">
+      <fx:include source="zamowienia-panel.fxml"/>
+    </Tab>
   </tabs>
 </TabPane>

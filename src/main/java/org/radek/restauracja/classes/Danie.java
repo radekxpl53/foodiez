@@ -59,9 +59,6 @@ public class Danie {
 
     @Override
     public String toString() {
-        return "nazwa='" + nazwa + '\'' +
-                ", opis='" + opis + '\'' +
-                ", cena=" + cena +
-                ", kategoria='" + kategoria + '\'';
+        return getNazwa() + " " + getOpis() + " " + getCena() + "zł.";
     }
 }

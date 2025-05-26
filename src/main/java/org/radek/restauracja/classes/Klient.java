@@ -1,9 +1,8 @@
 package org.radek.restauracja.classes;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.*;
 
 @Entity(name = "klient")
 public class Klient extends Uzytkownik {
@@ -11,6 +10,9 @@ public class Klient extends Uzytkownik {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String adres;
+
+    @OneToMany(mappedBy = "klient", cascade = CascadeType.ALL)
+    private List<Zamowienie> zamowienia = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -28,4 +30,8 @@ public class Klient extends Uzytkownik {
         this.adres = adres;
     }
 
+    @Override
+    public String toString() {
+        return this.getLogin();
+    }
 }

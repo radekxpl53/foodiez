@@ -23,4 +23,11 @@ public class InfoAlert {
         alert.setContentText("Nie wybrano nic z listy!");
         alert.showAndWait();
     }
+
+    public static void orderedAlert(Danie danie) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Zamówiono!");
+        alert.setContentText("Złożono zamówienie: " + danie.getNazwa());
+        alert.showAndWait();
+    }
 }

@@ -76,6 +76,8 @@ public class MainController implements Initializable {
 
             if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
+
+            CurrentKlient.setKlient((Klient)klient);
             SceneController sceneController = new SceneController();
             sceneController.switchScene("user-panel.fxml");
 

@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="dodane odznaczanie dań.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml" afterDir="false" />
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="rollback">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/CurrentKlient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Zamowienie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/util/DateFormatterUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Danie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Danie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/InfoAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/InfoAlert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Klient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Klient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-pane.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-pane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -146,6 +150,8 @@
       <workItem from="1747127825314" duration="3676000" />
       <workItem from="1747135758998" duration="3615000" />
       <workItem from="1747141552113" duration="7101000" />
+      <workItem from="1748167987464" duration="2140000" />
+      <workItem from="1748241687123" duration="1292000" />
     </task>
     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
       <option name="closed" value="true" />

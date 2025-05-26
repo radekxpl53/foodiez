@@ -48,7 +48,8 @@ public class Database {
                 .configure()
                 .addAnnotatedClass(Danie.class)
                 .addAnnotatedClass(Pracownik.class)
-                .addAnnotatedClass(Klient.class);
+                .addAnnotatedClass(Klient.class)
+                .addAnnotatedClass(Zamowienie.class);
 
         factory = config.buildSessionFactory();
 
