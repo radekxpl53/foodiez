@@ -16,6 +16,7 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-window.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainApplication.class.getResource("style.css").toExternalForm());
         stage = primaryStage;
         stage.setTitle("System Zarządzania Restauracją");
         stage.setScene(scene);

@@ -37,7 +37,6 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        currentDateLabel.setText(String.valueOf(date));
         errorLabel.setVisible(false);
     }
 
@@ -76,7 +75,6 @@ public class MainController implements Initializable {
 
             if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
-
             CurrentKlient.setKlient((Klient)klient);
             SceneController sceneController = new SceneController();
             sceneController.switchScene("user-panel.fxml");
@@ -96,6 +94,6 @@ public class MainController implements Initializable {
 
     public void startUserRegister(MouseEvent mouseEvent) throws IOException {
         SceneController sceneController = new SceneController();
-        sceneController.switchScene("org/radek/restauracja/register-panel.fxml");
+        sceneController.switchScene("register-panel.fxml");
     }
 }

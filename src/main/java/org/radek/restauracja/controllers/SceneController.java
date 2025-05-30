@@ -19,6 +19,7 @@ public class SceneController {
     public void switchScene(String url) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(url));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(MainApplication.class.getResource("style.css").toExternalForm());
         MainApplication.switchScene(scene);
     }
 

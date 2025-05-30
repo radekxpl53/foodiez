@@ -31,8 +31,6 @@ public class PracownikEditController implements Initializable {
     @FXML
     private TableView<Pracownik> pracownicyTable;
     @FXML
-    private TableColumn<Pracownik, Integer> idCol;
-    @FXML
     private TableColumn<Pracownik, String> imieCol;
     @FXML
     private TableColumn<Pracownik, String> nazwiskoCol;
@@ -68,7 +66,6 @@ public class PracownikEditController implements Initializable {
         unselectBtn.setOnAction((ActionEvent e) -> clearSelectedItem());
 
         //inicjalizacja kolumn
-        idCol.setCellValueFactory(new PropertyValueFactory<Pracownik, Integer>("id"));
         imieCol.setCellValueFactory(new PropertyValueFactory<Pracownik, String>("imie"));
         nazwiskoCol.setCellValueFactory(new PropertyValueFactory<Pracownik, String>("nazwisko"));
         emailCol.setCellValueFactory(new PropertyValueFactory<Pracownik, String>("email"));

@@ -35,7 +35,7 @@ public class SetUpPracownikController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errorLabel.setVisible(false);
-        pracownikInfoLabel.setText("login i haslo");
+        pracownikInfoLabel.setText("Login i hasło");
     }
 
     public void setLoginPassword(ActionEvent actionEvent) {

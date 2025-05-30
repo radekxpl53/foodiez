@@ -11,11 +11,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="419.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.PracownikEditController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.PracownikEditController">
    <children>
-      <TableView fx:id="pracownicyTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="391.0" prefWidth="458.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="244.0" AnchorPane.topAnchor="14.0">
+      <TableView fx:id="pracownicyTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="445.0" prefWidth="452.0" styleClass="table-view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="14.0">
         <columns>
-            <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="imieCol" prefWidth="75.0" text="Imie" />
           <TableColumn fx:id="nazwiskoCol" prefWidth="75.0" text="Nazwisko" />
             <TableColumn fx:id="emailCol" prefWidth="75.0" text="Email" />
@@ -26,25 +25,24 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <VBox alignment="TOP_CENTER" layoutX="484.0" layoutY="14.0" prefHeight="372.0" prefWidth="216.0" spacing="20.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
+      <VBox alignment="TOP_CENTER" layoutX="484.0" layoutY="26.0" prefHeight="572.0" prefWidth="255.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0">
          <children>
-            <Button fx:id="unselectBtn" mnemonicParsing="false" text="Odznacz" />
+            <Button fx:id="unselectBtn" mnemonicParsing="false" text="Odznacz">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Button>
             <TextField fx:id="idField" promptText="Id" />
             <TextField fx:id="imieField" promptText="Imie" />
             <TextField fx:id="nazwiskoField" promptText="Nazwisko" />
             <TextField fx:id="emailField" promptText="Email" />
             <TextField fx:id="telField" promptText="Telefon" />
             <ChoiceBox fx:id="rolaChoice" prefHeight="25.0" prefWidth="175.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <Button mnemonicParsing="false" onAction="#setLoginAndPasswd" text="Przypisz login i hasło" />
+            <HBox alignment="CENTER" prefHeight="64.0" prefWidth="179.0" spacing="10.0" styleClass="hbox-panel">
                <children>
-                  <Button mnemonicParsing="false" onAction="#setLoginAndPasswd" text="Przypisz login i hasło" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#addPracownik" text="Dodaj" />
-                  <Button mnemonicParsing="false" onAction="#editPracownik" text="Edytuj" />
-                  <Button mnemonicParsing="false" text="Usuń" />
+                  <Button mnemonicParsing="false" onAction="#addPracownik" prefHeight="33.0" prefWidth="0.0" text="+" />
+                  <Button mnemonicParsing="false" onAction="#editPracownik" prefHeight="33.0" prefWidth="150.0" text="Edytuj" />
+                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="94.0" text="-" textAlignment="CENTER" />
                </children>
             </HBox>
             <Label fx:id="errorLabel" text="Label" textFill="RED" />

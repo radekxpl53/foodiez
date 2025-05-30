@@ -21,8 +21,6 @@ public class DanieEditController implements Initializable {
     @FXML
     private TableView<Danie> daniaTable;
     @FXML
-    private TableColumn<Danie, Integer> idCol;
-    @FXML
     private TableColumn<Danie, String> nazwaCol;
     @FXML
     private TableColumn<Danie, String> opisCol;
@@ -49,7 +47,6 @@ public class DanieEditController implements Initializable {
         unselectBtn.setOnAction((ActionEvent e) -> clearSelectedItem());
 
         //inicjalizacja kolumn
-        idCol.setCellValueFactory(new PropertyValueFactory<Danie, Integer>("id"));
         nazwaCol.setCellValueFactory(new PropertyValueFactory<Danie, String>("nazwa"));
         opisCol.setCellValueFactory(new PropertyValueFactory<Danie, String>("opis"));
         cenaCol.setCellValueFactory(new PropertyValueFactory<Danie, Double>("cena"));
