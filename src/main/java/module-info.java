@@ -9,12 +9,12 @@ module org.radek.restauracja {
     requires org.postgresql.jdbc;
     requires org.apache.commons.validator;
 
-    opens org.radek.restauracja to javafx.fxml, org.hibernate.orm.core;
-    exports org.radek.restauracja;
-    exports org.radek.restauracja.controllers;
-    opens org.radek.restauracja.controllers to javafx.fxml, org.hibernate.orm.core;
-    exports org.radek.restauracja.classes;
-    opens org.radek.restauracja.classes to javafx.fxml, org.hibernate.orm.core;
-    exports org.radek.restauracja.exceptions;
-    opens org.radek.restauracja.exceptions to javafx.fxml, org.hibernate.orm.core;
+    opens org.radek.foodiez to javafx.fxml, org.hibernate.orm.core;
+    exports org.radek.foodiez;
+    exports org.radek.foodiez.controllers;
+    opens org.radek.foodiez.controllers to javafx.fxml, org.hibernate.orm.core;
+    exports org.radek.foodiez.classes;
+    opens org.radek.foodiez.classes to javafx.fxml, org.hibernate.orm.core;
+    exports org.radek.foodiez.exceptions;
+    opens org.radek.foodiez.exceptions to javafx.fxml, org.hibernate.orm.core;
 }
