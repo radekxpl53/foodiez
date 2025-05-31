@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.foodiez.controllers.OrdersController">
+    <children>
+        <TableView fx:id="ordersTable" layoutX="14.0" layoutY="13.333333333333334" onMouseClicked="#selectItemToEdit" prefHeight="596.0" prefWidth="972.0" styleClass="table-view" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0">
+            <columns>
+                <TableColumn fx:id="customerCol" prefWidth="75.0" text="Klient" />
+                <TableColumn fx:id="dishCol" prefWidth="75.0" text="Danie" />
+                <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
+                <TableColumn fx:id="dateCol" prefWidth="75.0" text="Data złożenia" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="621.0" prefHeight="63.0" prefWidth="972.0" spacing="500.0" styleClass="hbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <children>
+            <HBox prefHeight="33.0" prefWidth="320.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#completeOrder" text="Zrealizuj zamowienie" />
+                  <Button mnemonicParsing="false" onMouseClicked="#deleteOrder" prefHeight="33.0" prefWidth="75.0" text="Usuń" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="154.0" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="completedRadio" mnemonicParsing="false" onAction="#checkedFilter" text="pokaż zrealizowane" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
