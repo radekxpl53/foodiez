@@ -5,10 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.radek.restauracja.classes.Danie;
+import javafx.scene.input.MouseEvent;
+import org.hibernate.query.Query;
 import org.radek.restauracja.classes.Database;
 import org.radek.restauracja.classes.Zamowienie;
 import org.radek.restauracja.util.DateFormatterUtil;
@@ -29,6 +31,10 @@ public class ZamowienieController implements Initializable {
     private TableColumn<Zamowienie, String> statusCol;
     @FXML
     private TableColumn<Zamowienie, String> dataCol;
+    @FXML
+    private RadioButton completedRadio;
+
+    private Zamowienie selectedZamowienie;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,13 +48,42 @@ public class ZamowienieController implements Initializable {
 
     public void setZamowieniaToTable() {
         zamowieniaTable.getItems().clear();
-        Danie danie = new Danie();
 
-        List<Zamowienie> result = Database.getSession().createQuery("FROM zamowienie", Zamowienie.class).getResultList();
+        List<Zamowienie> result;
+
+        if(completedRadio.isSelected()) {
+            result = Database.getSession().createQuery("FROM zamowienie", Zamowienie.class).getResultList();
+        } else {
+            result = Database.getSession().createQuery("FROM zamowienie WHERE status='oczekujące'", Zamowienie.class).getResultList();
+        }
+
         zamowieniaTable.getItems().addAll(FXCollections.observableList(result));
     }
 
-    public void selectItemToEdit(ActionEvent event) {
+    public void completeOrder(MouseEvent event) {
+        Database.getSession().beginTransaction();
 
+        Query zamowienieQuery = Database.getSession().createQuery("UPDATE zamowienie SET status=:status WHERE id=:id");
+        zamowienieQuery.setParameter("status", "zrealizowane");
+        zamowienieQuery.setParameter("id", selectedZamowienie.getId());
+        zamowienieQuery.executeUpdate();
+
+        Database.getSession().getTransaction().commit();
+
+        setZamowieniaToTable();
     }
+
+    public void selectItemToEdit(MouseEvent event) {
+        selectedZamowienie = zamowieniaTable.getSelectionModel().getSelectedItem();
+    }
+
+    public void checkedFilter(ActionEvent action) {
+        setZamowieniaToTable();
+    }
+
+    public void deleteOrder(MouseEvent event) {
+        Database.removeFromDatabase(selectedZamowienie);
+        setZamowieniaToTable();
+    }
+
 }

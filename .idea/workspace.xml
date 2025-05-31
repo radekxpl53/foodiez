@@ -4,27 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="prosty system zamawiania, obsługiwania zamówień">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pictures/foodiez-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/style.css" afterDir="false" />
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pictures/foodiez-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/CurrentKlient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/CurrentUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Zamowienie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Zamowienie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml" afterDir="false" />
     </list>
@@ -45,6 +43,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -167,7 +166,7 @@
       <workItem from="1748336431164" duration="1393000" />
       <workItem from="1748351413966" duration="6676000" />
       <workItem from="1748625744976" duration="10499000" />
-      <workItem from="1748645032416" duration="668000" />
+      <workItem from="1748645032416" duration="19185000" />
     </task>
     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
       <option name="closed" value="true" />
@@ -225,7 +224,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748267499245</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji">
+      <option name="closed" value="true" />
+      <created>1748645928585</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748645928585</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +260,7 @@
     <MESSAGE value="Usprawniony proces rejestracji i logowania." />
     <MESSAGE value="dodane odznaczanie dań." />
     <MESSAGE value="prosty system zamawiania, obsługiwania zamówień" />
-    <option name="LAST_COMMIT_MESSAGE" value="prosty system zamawiania, obsługiwania zamówień" />
+    <MESSAGE value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
   </component>
 </project>

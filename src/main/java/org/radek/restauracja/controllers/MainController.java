@@ -3,12 +3,17 @@ package org.radek.restauracja.controllers;
 import jakarta.persistence.NoResultException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import org.hibernate.query.Query;
+import org.radek.restauracja.MainApplication;
 import org.radek.restauracja.classes.Database;
 import javafx.scene.input.MouseEvent;
 import org.radek.restauracja.exceptions.*;
@@ -18,8 +23,11 @@ import org.radek.restauracja.classes.*;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.lang.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainController implements Initializable {
 
@@ -61,6 +69,7 @@ public class MainController implements Initializable {
                 if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
                 if (role.equals("admin")) {
+                    CurrentUser.setPracownik((Pracownik) pracownik);
                     SceneController sceneController = new SceneController();
                     sceneController.switchScene("admin-panel.fxml");
                 }
@@ -75,7 +84,7 @@ public class MainController implements Initializable {
 
             if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
-            CurrentKlient.setKlient((Klient)klient);
+            CurrentUser.setKlient((Klient) klient);
             SceneController sceneController = new SceneController();
             sceneController.switchScene("user-panel.fxml");
 
@@ -93,7 +102,17 @@ public class MainController implements Initializable {
     }
 
     public void startUserRegister(MouseEvent mouseEvent) throws IOException {
-        SceneController sceneController = new SceneController();
-        sceneController.switchScene("register-panel.fxml");
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/org/radek/restauracja/register-panel.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Foodiez! - Rejestracja");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
     }
 }

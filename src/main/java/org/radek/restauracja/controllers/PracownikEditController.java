@@ -78,7 +78,7 @@ public class PracownikEditController implements Initializable {
     }
 
     public void setPracownicyToTable() {
-        //pobranie pracowników z bazy danych i przypisanie do TableView;
+        //pobranie pracowników z bazy danych i przypisanie do TableView
         pracownicyTable.getItems().clear();
 
         List<Pracownik> result = Database.getSession().createQuery("FROM pracownik WHERE rola != 'admin'", Pracownik.class).getResultList();

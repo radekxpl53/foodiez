@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane minHeight="400" minWidth="376.0" prefHeight="512.0" prefWidth="566.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.MainController">
+<AnchorPane minHeight="400" minWidth="376.0" prefHeight="512.0" prefWidth="399.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.MainController">
    <children>
-      <VBox alignment="CENTER" fillWidth="false" layoutX="153.0" layoutY="60.0" minHeight="200.0" minWidth="166.0" prefHeight="393.0" prefWidth="261.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="59.333333333333314" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="152.33333333333337" AnchorPane.topAnchor="60.0">
+      <VBox alignment="CENTER" fillWidth="false" layoutX="153.0" layoutY="60.0" minHeight="200.0" minWidth="166.0" prefHeight="393.0" prefWidth="261.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                <image>

@@ -3,10 +3,12 @@ package org.radek.restauracja;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.radek.restauracja.classes.Database;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainApplication extends Application {
 
@@ -18,7 +20,9 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(MainApplication.class.getResource("style.css").toExternalForm());
         stage = primaryStage;
-        stage.setTitle("System Zarządzania Restauracją");
+        stage.setTitle("Foodiez!");
+        stage.getIcons().add(new Image(Objects.requireNonNull(MainApplication.class.getResourceAsStream("pictures/foodiez-icon.png"))));
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

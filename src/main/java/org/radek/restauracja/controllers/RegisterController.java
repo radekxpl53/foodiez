@@ -1,5 +1,6 @@
 package org.radek.restauracja.controllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -55,6 +56,8 @@ public class RegisterController implements Initializable {
 
             Database.addToDatabase(klient);
             errorLabel.setVisible(false);
+
+            Platform.exit();
         } catch (EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setVisible(true);

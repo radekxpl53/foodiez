@@ -283,3 +283,33 @@
     -fx-border-width: 0 0 0 1px;
     -fx-padding: 20px;
 }
+
+.radio-button .radio {
+    -fx-background-color: #1abba1;
+    -fx-background-insets: 0;
+    -fx-background-radius: 100%;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #1abba1;
+    -fx-background-insets: 0;
+}
+.radio-button:selected .radio {
+    -fx-background-color: #1abba1;
+    -fx-background-insets: 0;
+}
+
+.radio-button .dot {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 100%;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: #1abba1;
+    -fx-background-insets: 0;
+}
+
+.radio-button .text {
+    -fx-fill: #333333;
+}

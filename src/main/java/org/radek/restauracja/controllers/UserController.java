@@ -1,17 +1,15 @@
 package org.radek.restauracja.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import org.radek.restauracja.MainApplication;
+import org.hibernate.query.Query;
 import org.radek.restauracja.classes.*;
 
 import java.io.IOException;
@@ -24,14 +22,51 @@ public class UserController implements Initializable {
 
     @FXML
     public GridPane menuGrid;
+    @FXML
+    public Label currentUserLabel;
+    @FXML
+    public ChoiceBox<String> filterChoice;
 
     private final List<Danie> listaDanie = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setDaniaToList();
+        currentUserLabel.setText("zalogowano jako: " + CurrentUser.getKlient().getLogin());
 
-        menuGrid.getColumnConstraints().clear(); // na wszelki wypadek
+        filterChoice.getItems().add("Wszystko");
+        filterChoice.getItems().addAll(Danie.kategorie);
+
+        filterChoice.setValue(filterChoice.getItems().getFirst());
+
+        setDaniaToList();
+        showItems();
+
+        //zmiana filtra
+        filterChoice.setOnAction(event -> {setDaniaToList(); showItems();});
+    }
+
+    public void setDaniaToList() {
+        //pobranie dań z bazy danych i przypisanie do TableView;
+        listaDanie.clear();
+
+        String filter = filterChoice.getValue();
+        List<Danie> result;
+
+        if (filter.equals("Wszystko")) {
+            result = Database.getSession().createQuery("FROM danie", Danie.class).getResultList();
+        } else {
+            Query<Danie> filteredQuery = Database.getSession().createQuery("FROM danie WHERE kategoria = :kategoria", Danie.class);
+            filteredQuery.setParameter("kategoria", filter);
+
+            result = filteredQuery.getResultList();
+        }
+        listaDanie.addAll(result);
+    }
+
+    public void showItems() {
+        menuGrid.getChildren().clear();
+
+        menuGrid.getColumnConstraints().clear();
         menuGrid.getRowConstraints().clear();
         menuGrid.setHgap(20);
         menuGrid.setVgap(20);
@@ -49,22 +84,19 @@ public class UserController implements Initializable {
                 menuGrid.add(itemBox, column, row);
 
                 column++;
-                if (column == 3) { // 3 elementy w wierszu
+                if (column == 4) {
                     column = 0;
                     row++;
                 }
             }
         } catch (IOException e) {
-        throw new RuntimeException(e);
-    }
+            throw new RuntimeException(e);
+        }
     }
 
-    public void setDaniaToList() {
-        //pobranie dań z bazy danych i przypisanie do TableView;
-        listaDanie.clear();
-
-        List<Danie> result = Database.getSession().createQuery("FROM danie", Danie.class).getResultList();
-        listaDanie.addAll(result);
+    public void logout(MouseEvent mouseEvent) throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchScene("main-window.fxml");
     }
 
 }

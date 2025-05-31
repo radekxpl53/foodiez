@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.AdminController">
+<TabPane minHeight="700" minWidth="1050" prefHeight="700.0" prefWidth="1050.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.AdminController">
   <tabs>
       <Tab text="Info">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@style.css">
+          <AnchorPane stylesheets="@style.css">
                <children>
-                  <VBox alignment="TOP_CENTER" layoutX="333.0" layoutY="130.0" prefHeight="361.0" prefWidth="293.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="131.33333333333331" AnchorPane.leftAnchor="333.0" AnchorPane.rightAnchor="333.3333333333334" AnchorPane.topAnchor="130.0">
+                  <VBox layoutX="4.0" layoutY="6.0" prefHeight="485.0" prefWidth="623.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                      <children>
-                        <Label text="Label" />
+                        <HBox prefHeight="29.0" prefWidth="909.0">
+                           <children>
+                              <Label style="-fx-font-size: 21; -fx-font-weight: bold;" text="Witaj " />
+                              <Label style="-fx-font-size: 21;" text="w panelu administracyjnym Systemu Zarządzania Restauracją " />
+                              <Label style="-fx-font-size: 21; -fx-font-weight: bold; -fx-text-fill: #1abba1;" text="Foodiez!" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="47.0" prefWidth="909.0">
+                           <children>
+                              <Label alignment="TOP_LEFT" lineSpacing="2.0" prefHeight="72.0" prefWidth="331.0" style="-fx-font-size: 16;" text="Foodiez! oferuję zarządzanie pracownikami, obsługę zamówień oraz edycję menu!" wrapText="true" />
+                           </children>
+                        </HBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="11.0" prefWidth="959.0">
+                           <children>
+                              <Label fx:id="currentUserLabel" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Label" />
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onMouseClicked="#logout" text="Wyloguj">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
                      </children>
                   </VBox>
-                  <Button layoutX="878.0" layoutY="-3.0" mnemonicParsing="false" onMouseClicked="#logout" text="Wyloguj" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0" />
                </children>
             </AnchorPane>
         </content>

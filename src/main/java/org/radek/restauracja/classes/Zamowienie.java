@@ -1,10 +1,9 @@
 package org.radek.restauracja.classes;
 
-import org.radek.restauracja.classes.*;
+import javafx.scene.control.Button;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Entity(name = "zamowienie")
 @Table(name = "zamowienie")

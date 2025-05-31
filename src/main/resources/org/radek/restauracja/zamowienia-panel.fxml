@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="419.0" prefWidth="716.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.ZamowienieController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.ZamowienieController">
     <children>
-        <TableView fx:id="zamowieniaTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="445.0" prefWidth="452.0" styleClass="table-view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="14.0">
+        <TableView fx:id="zamowieniaTable" layoutX="14.0" layoutY="13.333333333333334" onMouseClicked="#selectItemToEdit" prefHeight="596.0" prefWidth="972.0" styleClass="table-view" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="13.0">
             <columns>
                 <TableColumn fx:id="klientCol" prefWidth="75.0" text="Klient" />
                 <TableColumn fx:id="danieCol" prefWidth="75.0" text="Danie" />
@@ -19,10 +20,20 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <VBox alignment="TOP_CENTER" layoutX="484.0" layoutY="14.0" prefHeight="445.0" prefWidth="255.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-        </VBox>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="621.0" prefHeight="63.0" prefWidth="972.0" spacing="500.0" styleClass="hbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <children>
+            <HBox prefHeight="33.0" prefWidth="320.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#completeOrder" text="Zrealizuj zamowienie" />
+                  <Button mnemonicParsing="false" onMouseClicked="#deleteOrder" prefHeight="33.0" prefWidth="75.0" text="Usuń" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="33.0" prefWidth="154.0" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="completedRadio" mnemonicParsing="false" onAction="#checkedFilter" text="pokaż zrealizowane" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>
