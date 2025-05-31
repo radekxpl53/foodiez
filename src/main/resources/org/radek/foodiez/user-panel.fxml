@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.foodiez.controllers.UserController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutX="11.333333333333334" layoutY="109.33333333333333" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="277.0" prefWidth="572.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #1abba1;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="109.0">
+         <content>
+            <GridPane fx:id="menuGrid" prefHeight="0.0" prefWidth="0.0">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </ScrollPane>
+      <HBox alignment="CENTER" fillHeight="false" layoutX="14.0" layoutY="14.0" prefHeight="0.0" prefWidth="572.0" spacing="70.0" styleClass="hbox-panel" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="291.0">
+               <children>
+                  <Label fx:id="currentUserLabel" alignment="CENTER" text="Label" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="145.0">
+               <children>
+                  <ImageView fitHeight="41.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pictures/foodiez-logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="291.0" spacing="20.0">
+               <children>
+                  <ChoiceBox fx:id="filterChoice" prefHeight="0.0" prefWidth="150.0" />
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" text="Wyloguj" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

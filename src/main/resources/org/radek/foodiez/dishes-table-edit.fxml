@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.foodiez.controllers.DishesEditController">
+   <children>
+      <TableView fx:id="dishesTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="445.0" prefWidth="452.0" styleClass="table-view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="14.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="75.0" text="Nazwa" />
+          <TableColumn fx:id="descriptionCol" prefWidth="75.0" text="Opis" />
+            <TableColumn fx:id="priceCol" prefWidth="75.0" text="Cena" />
+            <TableColumn fx:id="categoryCol" prefWidth="75.0" text="Kategoria" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <VBox alignment="TOP_CENTER" layoutX="484.0" layoutY="14.0" prefHeight="445.0" prefWidth="255.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Button fx:id="unselectBtn" mnemonicParsing="false" styleClass="button" text="Odznacz">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Button>
+            <TextField fx:id="idField" promptText="Id" styleClass="text-field" />
+            <TextField fx:id="nameField" promptText="Nazwa" styleClass="text-field" />
+            <TextArea fx:id="descriptionArea" prefHeight="200.0" prefWidth="200.0" promptText="Opis" styleClass="text-field" wrapText="true" />
+            <TextField fx:id="priceField" promptText="Cena" styleClass="text-field" />
+            <ChoiceBox fx:id="categoryChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="181.0" styleClass="choice-box" />
+            <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="10.0" styleClass="hbox-panel">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#addDish" prefHeight="33.0" prefWidth="55.0" styleClass="button" text="+" />
+                  <Button mnemonicParsing="false" onAction="#editDish" prefHeight="33.0" prefWidth="125.0" styleClass="button" text="Edytuj" />
+                  <Button mnemonicParsing="false" onAction="#removeDish" prefHeight="33.0" prefWidth="70.0" styleClass="button" text="-" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

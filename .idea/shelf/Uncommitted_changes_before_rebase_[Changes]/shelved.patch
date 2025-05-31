@@ -1,0 +1,1676 @@
+Index: src/main/resources/org/radek/restauracja/zamowienia-panel.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.TableColumn?>\r\n<?import javafx.scene.control.TableView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.VBox?>\r\n\r\n<AnchorPane prefHeight=\"419.0\" prefWidth=\"716.0\" stylesheets=\"@style.css\" xmlns=\"http://javafx.com/javafx/23.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.radek.restauracja.controllers.ZamowienieController\">\r\n    <children>\r\n        <TableView fx:id=\"zamowieniaTable\" layoutX=\"14.0\" layoutY=\"14.0\" onMouseClicked=\"#selectItemToEdit\" prefHeight=\"445.0\" prefWidth=\"452.0\" styleClass=\"table-view\" AnchorPane.bottomAnchor=\"14.0\" AnchorPane.leftAnchor=\"14.0\" AnchorPane.rightAnchor=\"285.0\" AnchorPane.topAnchor=\"14.0\">\r\n            <columns>\r\n                <TableColumn fx:id=\"klientCol\" prefWidth=\"75.0\" text=\"Klient\" />\r\n                <TableColumn fx:id=\"danieCol\" prefWidth=\"75.0\" text=\"Danie\" />\r\n                <TableColumn fx:id=\"statusCol\" prefWidth=\"75.0\" text=\"Status\" />\r\n                <TableColumn fx:id=\"dataCol\" prefWidth=\"75.0\" text=\"Data złożenia\" />\r\n            </columns>\r\n            <columnResizePolicy>\r\n                <TableView fx:constant=\"CONSTRAINED_RESIZE_POLICY\" />\r\n            </columnResizePolicy>\r\n        </TableView>\r\n        <VBox alignment=\"TOP_CENTER\" layoutX=\"484.0\" layoutY=\"14.0\" prefHeight=\"445.0\" prefWidth=\"255.0\" spacing=\"20.0\" styleClass=\"vbox-panel\" AnchorPane.bottomAnchor=\"14.0\" AnchorPane.rightAnchor=\"16.0\" AnchorPane.topAnchor=\"14.0\">\r\n            <padding>\r\n                <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\" />\r\n            </padding>\r\n        </VBox>\r\n    </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml b/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml
+--- a/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml	(date 1748647563550)
+@@ -1,28 +1,46 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+ <?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
+ <?import javafx.scene.control.TableColumn?>
+ <?import javafx.scene.control.TableView?>
+ <?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.HBox?>
+ <?import javafx.scene.layout.VBox?>
++<?import javafx.scene.text.Font?>
+ 
+-<AnchorPane prefHeight="419.0" prefWidth="716.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.ZamowienieController">
++<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.ZamowienieController">
+     <children>
+-        <TableView fx:id="zamowieniaTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#selectItemToEdit" prefHeight="445.0" prefWidth="452.0" styleClass="table-view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="14.0">
+-            <columns>
+-                <TableColumn fx:id="klientCol" prefWidth="75.0" text="Klient" />
+-                <TableColumn fx:id="danieCol" prefWidth="75.0" text="Danie" />
+-                <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
+-                <TableColumn fx:id="dataCol" prefWidth="75.0" text="Data złożenia" />
+-            </columns>
+-            <columnResizePolicy>
+-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+-            </columnResizePolicy>
+-        </TableView>
+-        <VBox alignment="TOP_CENTER" layoutX="484.0" layoutY="14.0" prefHeight="445.0" prefWidth="255.0" spacing="20.0" styleClass="vbox-panel" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
+-            <padding>
+-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+-            </padding>
++        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="580.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
++            <children>
++                <Label styleClass="text-label-panel" text="Zarządzanie zamówieniami">
++                    <font>
++                        <Font name="System Bold" size="24.0" />
++                    </font>
++                    <VBox.margin>
++                        <Insets bottom="20.0" top="10.0" />
++                    </VBox.margin>
++                </Label>
++                <TableView fx:id="zamowieniaTable" prefHeight="400.0" prefWidth="760.0">
++                    <columns>
++                        <TableColumn fx:id="klientCol" prefWidth="150.0" text="Klient" />
++                        <TableColumn fx:id="danieCol" prefWidth="300.0" text="Pozycje" />
++                        <TableColumn fx:id="statusCol" prefWidth="100.0" text="Status" />
++                        <TableColumn fx:id="dataCol" prefWidth="100.0" text="Data zamówienia" />
++                        <TableColumn fx:id="cenaCaloscCol" prefWidth="100.0" text="Całkowita cena" /> </columns>
++                    <VBox.margin>
++                        <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
++                    </VBox.margin>
++                </TableView>
++                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
++                    <children>
++                        <Button mnemonicParsing="false" onAction="#refreshTable" text="Odśwież" /> </children>
++                    <VBox.margin>
++                        <Insets top="20.0" />
++                    </VBox.margin>
++                </HBox>
++            </children>
+         </VBox>
+     </children>
+-</AnchorPane>
++</AnchorPane>
+\ No newline at end of file
+Index: src/main/resources/org/radek/restauracja/item.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<VBox maxHeight=\"255.0\" maxWidth=\"225.0\" minHeight=\"158.0\" minWidth=\"225.0\" prefHeight=\"158.0\" prefWidth=\"225.0\" styleClass=\"vbox-panel\" stylesheets=\"@style.css\" xmlns=\"http://javafx.com/javafx/23.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.radek.restauracja.controllers.ItemController\">\r\n    <children>\r\n        <HBox alignment=\"CENTER\" prefHeight=\"100.0\">\r\n            <Label fx:id=\"nazwaLabel\" alignment=\"CENTER\" prefHeight=\"43.0\" prefWidth=\"99.0\" text=\"Label\" textAlignment=\"CENTER\">\r\n                <font><Font name=\"System Bold\" size=\"17.0\" /></font>\r\n            </Label>\r\n        </HBox>\r\n        <HBox alignment=\"TOP_CENTER\" prefHeight=\"100.0\">\r\n            <Label fx:id=\"cenaLabel\" alignment=\"CENTER\" prefHeight=\"17.0\" prefWidth=\"65.0\" text=\"Label\" textAlignment=\"CENTER\" />\r\n        </HBox>\r\n        <HBox alignment=\"CENTER\" prefHeight=\"61.0\">\r\n            <Button mnemonicParsing=\"false\" prefHeight=\"33.0\" prefWidth=\"113.0\" text=\"Zamów\" />\r\n        </HBox>\r\n    </children>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/radek/restauracja/item.fxml b/src/main/resources/org/radek/restauracja/item.fxml
+--- a/src/main/resources/org/radek/restauracja/item.fxml	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/resources/org/radek/restauracja/item.fxml	(date 1748647252154)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
++<?import javafx.geometry.Insets?>
+ <?import javafx.scene.control.Button?>
+ <?import javafx.scene.control.Label?>
+ <?import javafx.scene.layout.HBox?>
+@@ -17,7 +18,7 @@
+             <Label fx:id="cenaLabel" alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="Label" textAlignment="CENTER" />
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="61.0">
+-            <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="113.0" text="Zamów" />
++            <Button mnemonicParsing="false" onAction="#addToCart" prefHeight="33.0" prefWidth="113.0" text="Dodaj do koszyka" />
+         </HBox>
+     </children>
+-</VBox>
++</VBox>
+\ No newline at end of file
+Index: src/main/resources/org/radek/restauracja/user-panel.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.ScrollPane?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.GridPane?>\r\n<?import javafx.scene.layout.RowConstraints?>\r\n\r\n<AnchorPane prefHeight=\"400.0\" prefWidth=\"600.0\" stylesheets=\"@style.css\" xmlns=\"http://javafx.com/javafx/23.0.1\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.radek.restauracja.controllers.UserController\">\r\n   <children>\r\n      <ScrollPane hbarPolicy=\"NEVER\" layoutX=\"237.0\" layoutY=\"14.0\" prefHeight=\"374.0\" prefWidth=\"349.0\" AnchorPane.bottomAnchor=\"12.0\" AnchorPane.leftAnchor=\"237.33333333333331\" AnchorPane.rightAnchor=\"13.333333333333314\" AnchorPane.topAnchor=\"14.0\">\r\n         <content>\r\n            <GridPane fx:id=\"menuGrid\" prefHeight=\"0.0\" prefWidth=\"0.0\">\r\n               <rowConstraints>\r\n                  <RowConstraints minHeight=\"10.0\" prefHeight=\"30.0\" />\r\n               </rowConstraints>\r\n            </GridPane>\r\n         </content>\r\n      </ScrollPane>\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/radek/restauracja/user-panel.fxml b/src/main/resources/org/radek/restauracja/user-panel.fxml
+--- a/src/main/resources/org/radek/restauracja/user-panel.fxml	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/resources/org/radek/restauracja/user-panel.fxml	(date 1748647372723)
+@@ -1,20 +1,40 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.ScrollPane?>
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.ComboBox?>
++<?import javafx.scene.control.Label?>
+ <?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.HBox?>
++<?import javafx.scene.layout.VBox?>
+ <?import javafx.scene.layout.GridPane?>
+-<?import javafx.scene.layout.RowConstraints?>
++<?import javafx.scene.text.Font?>
+ 
+-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.UserController">
++<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.UserController">
+    <children>
+-      <ScrollPane hbarPolicy="NEVER" layoutX="237.0" layoutY="14.0" prefHeight="374.0" prefWidth="349.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="237.33333333333331" AnchorPane.rightAnchor="13.333333333333314" AnchorPane.topAnchor="14.0">
+-         <content>
+-            <GridPane fx:id="menuGrid" prefHeight="0.0" prefWidth="0.0">
+-               <rowConstraints>
+-                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+-               </rowConstraints>
+-            </GridPane>
+-         </content>
+-      </ScrollPane>
++      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="580.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
++         <children>
++            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
++               <Label styleClass="text-label-panel" text="Witaj w menu!">
++                  <font>
++                     <Font name="System Bold" size="24.0" />
++                  </font>
++               </Label>
++            </HBox>
++            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0">
++               <ComboBox fx:id="kategoriaFilter" onAction="#filterDania" prefWidth="150.0" promptText="Wybierz kategorię">
++                  <HBox.margin>
++                     <Insets right="20.0" />
++                  </HBox.margin>
++               </ComboBox>
++               <Button mnemonicParsing="false" onAction="#resetFilter" text="Pokaż wszystkie" />
++               <Button mnemonicParsing="false" onAction="#goToCart" prefHeight="25.0" prefWidth="100.0" text="Mój koszyk">
++                  <HBox.margin>
++                     <Insets left="50.0" />
++                  </HBox.margin>
++               </Button>
++            </HBox>
++            <GridPane fx:id="menuGrid" alignment="TOP_CENTER" prefHeight="450.0" prefWidth="760.0" />
++         </children>
++      </VBox>
+    </children>
+-</AnchorPane>
++</AnchorPane>
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/InfoAlert.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.classes;\r\n\r\nimport javafx.scene.control.Alert;\r\n\r\npublic class InfoAlert {\r\n    public static void emptyFieldAlert() {\r\n        Alert alert = new Alert(Alert.AlertType.ERROR);\r\n        alert.setTitle(\"Błąd!\");\r\n        alert.setContentText(\"Pola nie mogą być puste!\");\r\n        alert.showAndWait();\r\n    }\r\n\r\n    public static void noUserAlert() {\r\n        Alert alert = new Alert(Alert.AlertType.ERROR);\r\n        alert.setTitle(\"Błąd!\");\r\n        alert.setContentText(\"Błędny login lub hasło!\");\r\n        alert.showAndWait();\r\n    }\r\n\r\n    public static void emptySelectionAlert() {\r\n        Alert alert = new Alert(Alert.AlertType.ERROR);\r\n        alert.setTitle(\"Błąd!\");\r\n        alert.setContentText(\"Nie wybrano nic z listy!\");\r\n        alert.showAndWait();\r\n    }\r\n\r\n    public static void orderedAlert(Danie danie) {\r\n        Alert alert = new Alert(Alert.AlertType.INFORMATION);\r\n        alert.setTitle(\"Zamówiono!\");\r\n        alert.setContentText(\"Złożono zamówienie: \" + danie.getNazwa());\r\n        alert.showAndWait();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/InfoAlert.java b/src/main/java/org/radek/restauracja/classes/InfoAlert.java
+--- a/src/main/java/org/radek/restauracja/classes/InfoAlert.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/classes/InfoAlert.java	(date 1748647284229)
+@@ -1,3 +1,4 @@
++// src/main/java/org/radek/restauracja/classes/InfoAlert.java
+ package org.radek.restauracja.classes;
+ 
+ import javafx.scene.control.Alert;
+@@ -13,7 +14,7 @@
+     public static void noUserAlert() {
+         Alert alert = new Alert(Alert.AlertType.ERROR);
+         alert.setTitle("Błąd!");
+-        alert.setContentText("Błędny login lub hasło!");
++        alert.setContentText("Błędny login lub hasło! Zaloguj się by skorzystać z tej funkcji"); // Zmieniony tekst
+         alert.showAndWait();
+     }
+ 
+@@ -24,10 +25,27 @@
+         alert.showAndWait();
+     }
+ 
++    // Nowa ogólna metoda dla informacji
++    public static void infoAlert(String title, String content) {
++        Alert alert = new Alert(Alert.AlertType.INFORMATION);
++        alert.setTitle(title);
++        alert.setContentText(content);
++        alert.showAndWait();
++    }
++
++    // Nowa ogólna metoda dla błędów
++    public static void errorAlert(String title, String content) {
++        Alert alert = new Alert(Alert.AlertType.ERROR);
++        alert.setTitle(title);
++        alert.setContentText(content);
++        alert.showAndWait();
++    }
++
++    @Deprecated // Ta metoda jest teraz przestarzała na rzecz infoAlert
+     public static void orderedAlert(Danie danie) {
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+         alert.setTitle("Zamówiono!");
+         alert.setContentText("Złożono zamówienie: " + danie.getNazwa());
+         alert.showAndWait();
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/Zamowienie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.classes;\r\n\r\nimport org.radek.restauracja.classes.*;\r\nimport jakarta.persistence.*;\r\n\r\nimport java.sql.Timestamp;\r\nimport java.time.LocalDateTime;\r\n\r\n@Entity(name = \"zamowienie\")\r\n@Table(name = \"zamowienie\")\r\npublic class Zamowienie {\r\n\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private Long id;\r\n\r\n    @ManyToOne(optional = false)\r\n    @JoinColumn(name = \"klient_id\", nullable = false)\r\n    private Klient klient;\r\n\r\n    @ManyToOne(optional = false)\r\n    @JoinColumn(name = \"danie_id\", nullable = false)\r\n    private Danie danie;\r\n\r\n    @Column(nullable = false)\r\n    private String status = \"oczekujące\";\r\n\r\n    @Column(name = \"data_zamowienia\", columnDefinition = \"TIMESTAMP DEFAULT CURRENT_TIMESTAMP\")\r\n    private Timestamp dataZamowienia;\r\n\r\n    public Long getId() { return id; }\r\n\r\n    public Klient getKlient() { return klient; }\r\n\r\n    public void setKlient(Klient klient) { this.klient = klient; }\r\n\r\n    public Danie getDanie() { return danie; }\r\n\r\n    public void setDanie(Danie danie) { this.danie = danie; }\r\n\r\n    public String getStatus() { return status; }\r\n\r\n    public void setStatus(String status) { this.status = status; }\r\n\r\n    public Timestamp getDataZamowienia() { return dataZamowienia; }\r\n\r\n    public void setDataZamowienia(Timestamp dataZamowienia) { this.dataZamowienia = dataZamowienia; }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/Zamowienie.java b/src/main/java/org/radek/restauracja/classes/Zamowienie.java
+--- a/src/main/java/org/radek/restauracja/classes/Zamowienie.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/classes/Zamowienie.java	(date 1748649368657)
+@@ -1,12 +1,14 @@
+-package org.radek.restauracja.classes;
++package org.radek.restauracja.classes; // Twój pakiet
+ 
+-import org.radek.restauracja.classes.*;
+ import jakarta.persistence.*;
+-
++import java.math.BigDecimal;
++import java.sql.Time;
+ import java.sql.Timestamp;
+ import java.time.LocalDateTime;
++import java.util.ArrayList;
++import java.util.List;
+ 
+-@Entity(name = "zamowienie")
++@Entity
+ @Table(name = "zamowienie")
+ public class Zamowienie {
+ 
+@@ -14,35 +16,109 @@
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+ 
+-    @ManyToOne(optional = false)
++    @ManyToOne
+     @JoinColumn(name = "klient_id", nullable = false)
+     private Klient klient;
+ 
+-    @ManyToOne(optional = false)
+-    @JoinColumn(name = "danie_id", nullable = false)
+-    private Danie danie;
+ 
+     @Column(nullable = false)
+     private String status = "oczekujące";
+ 
+-    @Column(name = "data_zamowienia", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
++    // Zmieniono typ z Timestamp na LocalDateTime
++    @Column(name = "data_zamowienia") // Usunięto columnDefinition, bo LocalDateTime samo się mapuje
+     private Timestamp dataZamowienia;
+ 
+-    public Long getId() { return id; }
++    @Column(name = "calkowita_cena") // Dodane pole na całkowitą cenę
++    private BigDecimal calkowitaCena;
++
++    // Nowa kolekcja dla pozycji zamówienia
++    // mappedBy wskazuje na pole 'zamowienie' w klasie PozycjaZamowienia
++    // CascadeType.ALL oznacza, że operacje (persist, remove) na Zamowieniu kaskadowo dotyczą PozycjaZamowienia
++    // orphanRemoval = true oznacza, że usunięcie PozycjaZamowienia z listy spowoduje jej usunięcie z bazy
++    @OneToMany(mappedBy = "zamowienie", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
++    private List<PozycjaZamowienia> pozycje = new ArrayList<>();
++
++    // Konstruktory
++    public Zamowienie() {
++        this.dataZamowienia = Timestamp.valueOf(LocalDateTime.now());
++        this.calkowitaCena = BigDecimal.ZERO; // Ustawienie początkowej wartości
++    }
++
++    public Zamowienie(Klient klient) {
++        this(); // Wywołuje domyślny konstruktor, ustawiając datę i status
++        this.klient = klient;
++    }
++
++    // Gettery i Settery
+ 
+-    public Klient getKlient() { return klient; }
++    public Long getId() {
++        return id;
++    }
+ 
+-    public void setKlient(Klient klient) { this.klient = klient; }
++    public void setId(Long id) {
++        this.id = id;
++    }
+ 
+-    public Danie getDanie() { return danie; }
++    public Klient getKlient() {
++        return klient;
++    }
+ 
+-    public void setDanie(Danie danie) { this.danie = danie; }
++    public void setKlient(Klient klient) {
++        this.klient = klient;
++    }
+ 
+-    public String getStatus() { return status; }
++    public String getStatus() {
++        return status;
++    }
+ 
+-    public void setStatus(String status) { this.status = status; }
++    public void setStatus(String status) {
++        this.status = status;
++    }
+ 
+-    public Timestamp getDataZamowienia() { return dataZamowienia; }
++    public Timestamp getDataZamowienia() {
++        return dataZamowienia;
++    }
+ 
+-    public void setDataZamowienia(Timestamp dataZamowienia) { this.dataZamowienia = dataZamowienia; }
+-}
++    public void setDataZamowienia(Timestamp dataZamowienia) {
++        this.dataZamowienia = dataZamowienia;
++    }
++
++    public BigDecimal getCalkowitaCena() {
++        return calkowitaCena;
++    }
++
++    public void setCalkowitaCena(BigDecimal calkowitaCena) {
++        this.calkowitaCena = calkowitaCena;
++    }
++
++    public List<PozycjaZamowienia> getPozycje() {
++        return pozycje;
++    }
++
++    public void setPozycje(List<PozycjaZamowienia> pozycje) {
++        this.pozycje = pozycje;
++    }
++
++    // Metody pomocnicze do zarządzania pozycjami (ważne dla dwukierunkowej relacji)
++    public void addPozycjaZamowienia(PozycjaZamowienia pozycja) {
++        pozycje.add(pozycja);
++        pozycja.setZamowienie(this);
++    }
++
++    public void removePozycjaZamowienia(PozycjaZamowienia pozycja) {
++        pozycje.remove(pozycja);
++        pozycja.setZamowienie(null);
++    }
++
++    @Override
++    public String toString() {
++        return "Zamowienie{" +
++                "id=" + id +
++                ", klient=" + (klient != null ? klient.getImie() + " " + klient.getNazwisko() : "null") +
++                ", status='" + status + '\'' +
++                ", dataZamowienia=" + dataZamowienia +
++                ", calkowitaCena=" + calkowitaCena +
++                ", iloscPozycji=" + pozycje.size() +
++                '}';
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/Database.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.classes;\r\n\r\nimport org.hibernate.Session;\r\nimport org.hibernate.SessionFactory;\r\nimport org.hibernate.Transaction;\r\nimport org.hibernate.cfg.Configuration;\r\n\r\npublic class Database {\r\n    private static Configuration config;\r\n    private static Session session;\r\n    private static SessionFactory factory;\r\n    private static Transaction transaction;\r\n\r\n    public static Configuration getConfig() {\r\n        return config;\r\n    }\r\n\r\n    public static void setConfig(Configuration config) {\r\n        Database.config = config;\r\n    }\r\n\r\n    public static Session getSession() {\r\n        return session;\r\n    }\r\n\r\n    public static void setSession(Session session) {\r\n        Database.session = session;\r\n    }\r\n\r\n    public static SessionFactory getFactory() {\r\n        return factory;\r\n    }\r\n\r\n    public static void setFactory(SessionFactory factory) {\r\n        Database.factory = factory;\r\n    }\r\n\r\n    public static Transaction getTransaction() {\r\n        return transaction;\r\n    }\r\n\r\n    public static void setTransaction(Transaction transaction) {\r\n        Database.transaction = transaction;\r\n    }\r\n\r\n    public static void connect() {\r\n        config = new Configuration()\r\n                .configure()\r\n                .addAnnotatedClass(Danie.class)\r\n                .addAnnotatedClass(Pracownik.class)\r\n                .addAnnotatedClass(Klient.class)\r\n                .addAnnotatedClass(Zamowienie.class);\r\n\r\n        factory = config.buildSessionFactory();\r\n\r\n        session = factory.openSession();\r\n    }\r\n\r\n    public static void close() {\r\n        factory.close();\r\n        session.close();\r\n    }\r\n\r\n    public static void addToDatabase(Object object) {\r\n        transaction = session.beginTransaction();\r\n\r\n        session.persist(object);\r\n\r\n        transaction.commit();\r\n    }\r\n\r\n    public static void removeFromDatabase(Object object) {\r\n        transaction = session.beginTransaction();\r\n\r\n        session.remove(object);\r\n\r\n        transaction.commit();\r\n    }\r\n\r\n    public static void editItemDatabase(Object object) {\r\n        transaction = session.beginTransaction();\r\n\r\n        session.merge(object);\r\n\r\n        transaction.commit();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/Database.java b/src/main/java/org/radek/restauracja/classes/Database.java
+--- a/src/main/java/org/radek/restauracja/classes/Database.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/classes/Database.java	(date 1748649484756)
+@@ -5,6 +5,8 @@
+ import org.hibernate.Transaction;
+ import org.hibernate.cfg.Configuration;
+ 
++import java.util.List;
++
+ public class Database {
+     private static Configuration config;
+     private static Session session;
+@@ -49,8 +51,11 @@
+                 .addAnnotatedClass(Danie.class)
+                 .addAnnotatedClass(Pracownik.class)
+                 .addAnnotatedClass(Klient.class)
+-                .addAnnotatedClass(Zamowienie.class);
+-
++                .addAnnotatedClass(Zamowienie.class)
++                .addAnnotatedClass(Koszyk.class)
++                .addAnnotatedClass(KoszykDanie.class)
++                .addAnnotatedClass(ZamowienieDanie.class)
++                .addAnnotatedClass(ZamowienieDanieId.class);
+         factory = config.buildSessionFactory();
+ 
+         session = factory.openSession();
+@@ -62,26 +67,33 @@
+     }
+ 
+     public static void addToDatabase(Object object) {
+-        transaction = session.beginTransaction();
+-
+-        session.persist(object);
+-
+-        transaction.commit();
++        try (Session newSession = factory.openSession()) {
++            Transaction newTransaction = newSession.beginTransaction();
++            newSession.persist(object);
++            newTransaction.commit();
++        }
+     }
+ 
+     public static void removeFromDatabase(Object object) {
+-        transaction = session.beginTransaction();
+-
+-        session.remove(object);
+-
+-        transaction.commit();
++        try (Session newSession = factory.openSession()) {
++            Transaction newTransaction = newSession.beginTransaction();
++            newSession.remove(object);
++            newTransaction.commit();
++        }
+     }
+ 
+     public static void editItemDatabase(Object object) {
+-        transaction = session.beginTransaction();
++        try (Session newSession = factory.openSession()) {
++            Transaction newTransaction = newSession.beginTransaction();
++            newSession.merge(object);
++            newTransaction.commit();
++        }
++    }
+ 
+-        session.merge(object);
+-
+-        transaction.commit();
+-    }
+-}
++    public static <T> List<T> getAll(Class<T> type) {
++        try (Session session = factory.openSession()) {
++            // Zmieniono, aby używać nazwy encji z małych liter
++            return session.createQuery("FROM " + type.getSimpleName().toLowerCase(), type).getResultList();
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/Danie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.classes;\r\n\r\nimport jakarta.persistence.Entity;\r\nimport jakarta.persistence.GeneratedValue;\r\nimport jakarta.persistence.GenerationType;\r\nimport jakarta.persistence.Id;\r\n\r\n@Entity(name = \"danie\")\r\npublic class Danie {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private int id;\r\n    private String nazwa;\r\n    private String opis;\r\n    private double cena;\r\n    private String kategoria;\r\n\r\n    public static String[] kategorie = {\"Śniadanie\", \"Obiad\", \"Kolacja\"};\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(int id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public String getNazwa() {\r\n        return nazwa;\r\n    }\r\n\r\n    public void setNazwa(String nazwa) {\r\n        this.nazwa = nazwa;\r\n    }\r\n\r\n    public String getOpis() {\r\n        return opis;\r\n    }\r\n\r\n    public void setOpis(String opis) {\r\n        this.opis = opis;\r\n    }\r\n\r\n    public double getCena() {\r\n        return cena;\r\n    }\r\n\r\n    public void setCena(double cena) {\r\n        this.cena = cena;\r\n    }\r\n\r\n    public String getKategoria() {\r\n        return kategoria;\r\n    }\r\n\r\n    public void setKategoria(String kategoria) {\r\n        this.kategoria = kategoria;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return getNazwa() + \" \" + getOpis() + \" \" + getCena() + \"zł.\";\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/Danie.java b/src/main/java/org/radek/restauracja/classes/Danie.java
+--- a/src/main/java/org/radek/restauracja/classes/Danie.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/classes/Danie.java	(date 1748649549442)
+@@ -1,9 +1,14 @@
++// src/main/java/org/radek/restauracja/classes/Danie.java
+ package org.radek.restauracja.classes;
+ 
+ import jakarta.persistence.Entity;
+ import jakarta.persistence.GeneratedValue;
+ import jakarta.persistence.GenerationType;
+ import jakarta.persistence.Id;
++import javafx.beans.property.SimpleDoubleProperty; // DODAJ
++import javafx.beans.property.SimpleStringProperty; // DODAJ
++import javafx.beans.property.StringProperty; // DODAJ
++import javafx.beans.property.DoubleProperty; // DODAJ
+ 
+ @Entity(name = "danie")
+ public class Danie {
+@@ -33,6 +38,11 @@
+         this.nazwa = nazwa;
+     }
+ 
++    // DODAJ WŁAŚCIWOŚCI JAVAFX
++    public StringProperty nazwaProperty() {
++        return new SimpleStringProperty(nazwa);
++    }
++
+     public String getOpis() {
+         return opis;
+     }
+@@ -49,6 +59,11 @@
+         this.cena = cena;
+     }
+ 
++    // DODAJ WŁAŚCIWOŚCI JAVAFX
++    public DoubleProperty cenaProperty() {
++        return new SimpleDoubleProperty(cena);
++    }
++
+     public String getKategoria() {
+         return kategoria;
+     }
+@@ -59,6 +74,6 @@
+ 
+     @Override
+     public String toString() {
+-        return getNazwa() + " " + getOpis() + " " + getCena() + "zł.";
++        return nazwa;
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/Klient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.classes;\r\n\r\nimport jakarta.persistence.*;\r\n\r\nimport java.util.*;\r\n\r\n@Entity(name = \"klient\")\r\npublic class Klient extends Uzytkownik {\r\n    @Id\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    private int id;\r\n    private String adres;\r\n\r\n    @OneToMany(mappedBy = \"klient\", cascade = CascadeType.ALL)\r\n    private List<Zamowienie> zamowienia = new ArrayList<>();\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public void setId(int id) {\r\n        this.id = id;\r\n    }\r\n\r\n    public String getAdres() {\r\n        return adres;\r\n    }\r\n\r\n    public void setAdres(String adres) {\r\n        this.adres = adres;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return this.getLogin();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/Klient.java b/src/main/java/org/radek/restauracja/classes/Klient.java
+--- a/src/main/java/org/radek/restauracja/classes/Klient.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/classes/Klient.java	(date 1748647497612)
+@@ -1,3 +1,4 @@
++// src/main/java/org/radek/restauracja/classes/Klient.java
+ package org.radek.restauracja.classes;
+ 
+ import jakarta.persistence.*;
+@@ -11,9 +12,13 @@
+     private int id;
+     private String adres;
+ 
+-    @OneToMany(mappedBy = "klient", cascade = CascadeType.ALL)
++    @OneToMany(mappedBy = "klient", cascade = CascadeType.ALL, fetch = FetchType.EAGER) // DODAJ fetch = FetchType.EAGER
+     private List<Zamowienie> zamowienia = new ArrayList<>();
+ 
++    // Dodaj to, aby klient mógł mieć koszyk
++    @OneToOne(mappedBy = "klient", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
++    private Koszyk koszyk;
++
+     public int getId() {
+         return id;
+     }
+@@ -30,8 +35,24 @@
+         this.adres = adres;
+     }
+ 
++    public List<Zamowienie> getZamowienia() {
++        return zamowienia;
++    }
++
++    public void setZamowienia(List<Zamowienie> zamowienia) {
++        this.zamowienia = zamowienia;
++    }
++
++    public Koszyk getKoszyk() { // DODAJ to
++        return koszyk;
++    }
++
++    public void setKoszyk(Koszyk koszyk) { // DODAJ to
++        this.koszyk = koszyk;
++    }
++
+     @Override
+     public String toString() {
+         return this.getLogin();
+     }
+-}
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/controllers/ItemController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.controllers;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Label;\r\nimport org.radek.restauracja.classes.Danie;\r\n\r\npublic class ItemController {\r\n\r\n    @FXML\r\n    private Label cenaLabel;\r\n\r\n    @FXML\r\n    private Label nazwaLabel;\r\n\r\n    private Danie danie;\r\n\r\n    public void setData(Danie danie) {\r\n        this.danie = danie;\r\n        nazwaLabel.setText(danie.getNazwa());\r\n        cenaLabel.setText(danie.getCena() + \"zł\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/controllers/ItemController.java b/src/main/java/org/radek/restauracja/controllers/ItemController.java
+--- a/src/main/java/org/radek/restauracja/controllers/ItemController.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/controllers/ItemController.java	(date 1748648479468)
+@@ -1,8 +1,16 @@
+ package org.radek.restauracja.controllers;
+ 
++import javafx.event.ActionEvent;
+ import javafx.fxml.FXML;
+ import javafx.scene.control.Label;
+ import org.radek.restauracja.classes.Danie;
++import org.radek.restauracja.classes.Koszyk;
++import org.radek.restauracja.classes.Klient;
++import org.radek.restauracja.classes.CurrentKlient;
++import org.radek.restauracja.classes.Database;
++import org.radek.restauracja.classes.InfoAlert;
++import org.hibernate.query.Query; // Import for Hibernate Query
++import jakarta.persistence.NoResultException; // Import for handling no result
+ 
+ public class ItemController {
+ 
+@@ -12,7 +20,7 @@
+     @FXML
+     private Label nazwaLabel;
+ 
+-    private Danie danie;
++    private Danie danie; // This will hold the Danie object for the current item
+ 
+     public void setData(Danie danie) {
+         this.danie = danie;
+@@ -20,4 +28,57 @@
+         cenaLabel.setText(danie.getCena() + "zł");
+     }
+ 
+-}
++    @FXML // Assumes a button in your FXML is linked to this method
++    public void addToCart(ActionEvent actionEvent) {
++        if (danie == null) {
++            InfoAlert.emptySelectionAlert(); // Or a more specific alert
++            return;
++        }
++
++        Klient currentKlient = CurrentKlient.getKlient();
++        if (currentKlient == null) {
++            // Handle case where no client is logged in
++            InfoAlert.noUserAlert(); // Or a more specific alert like "Please log in to add items to cart"
++            return;
++        }
++
++        try {
++            Koszyk koszyk = null;
++            // Fetch the latest Koszyk for the current client from the database
++            // This is crucial for optimistic locking
++            try {
++                Query<Koszyk> koszykQuery = Database.getSession().createQuery(
++                        "FROM koszyk k JOIN FETCH k.pozycjeKoszyka WHERE k.klient = :klient", Koszyk.class);
++                koszykQuery.setParameter("klient", currentKlient);
++                koszyk = koszykQuery.uniqueResult();
++            } catch (NoResultException e) {
++                // No existing cart for this client, koszyk will remain null
++            }
++
++            if (koszyk == null) {
++                // No existing cart, create a new one
++                koszyk = new Koszyk();
++                koszyk.setKlient(currentKlient);
++                koszyk.addDanieToKoszyk(danie, 1); // Add the selected Danie with quantity 1
++                Database.addToDatabase(koszyk);
++            } else {
++                // Existing cart found, add/update the Danie
++                // The 'koszyk' object here is the freshest version from the DB
++                koszyk.addDanieToKoszyk(danie, 1); // Add or update the Danie in the cart
++                Database.editItemDatabase(koszyk);
++            }
++
++            InfoAlert.orderedAlert(danie); // Show success message
++
++        } catch (jakarta.persistence.OptimisticLockException ole) {
++            System.err.println("Optimistic Lock Exception: " + ole.getMessage());
++            // Inform the user about the conflict and suggest reattempting
++            InfoAlert.emptyFieldAlert(); // You might want a more specific error alert here
++            // e.g., "Koszyk został zmieniony przez inną operację. Spróbuj ponownie."
++        } catch (Exception e) {
++            System.err.println("Error adding to cart: " + e.getMessage());
++            e.printStackTrace();
++            InfoAlert.emptyFieldAlert(); // Generic error alert
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/controllers/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.controllers;\r\n\r\nimport javafx.collections.FXCollections;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.control.ListView;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.GridPane;\r\nimport javafx.scene.layout.Region;\r\nimport javafx.scene.layout.VBox;\r\nimport org.radek.restauracja.MainApplication;\r\nimport org.radek.restauracja.classes.*;\r\n\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class UserController implements Initializable {\r\n\r\n    @FXML\r\n    public GridPane menuGrid;\r\n\r\n    private final List<Danie> listaDanie = new ArrayList<>();\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        setDaniaToList();\r\n\r\n        menuGrid.getColumnConstraints().clear(); // na wszelki wypadek\r\n        menuGrid.getRowConstraints().clear();\r\n        menuGrid.setHgap(20);\r\n        menuGrid.setVgap(20);\r\n        menuGrid.setPadding(new Insets(20));\r\n\r\n        int column = 0; int row = 0;\r\n\r\n        try {\r\n            for (Danie danie : listaDanie) {\r\n                FXMLLoader loader = new FXMLLoader(getClass().getResource(\"/org/radek/restauracja/item.fxml\"));\r\n                VBox itemBox = loader.load();\r\n                ItemController controller = loader.getController();\r\n                controller.setData(danie);\r\n\r\n                menuGrid.add(itemBox, column, row);\r\n\r\n                column++;\r\n                if (column == 3) { // 3 elementy w wierszu\r\n                    column = 0;\r\n                    row++;\r\n                }\r\n            }\r\n        } catch (IOException e) {\r\n        throw new RuntimeException(e);\r\n    }\r\n    }\r\n\r\n    public void setDaniaToList() {\r\n        //pobranie dań z bazy danych i przypisanie do TableView;\r\n        listaDanie.clear();\r\n\r\n        List<Danie> result = Database.getSession().createQuery(\"FROM danie\", Danie.class).getResultList();\r\n        listaDanie.addAll(result);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/controllers/UserController.java b/src/main/java/org/radek/restauracja/controllers/UserController.java
+--- a/src/main/java/org/radek/restauracja/controllers/UserController.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/controllers/UserController.java	(date 1748649500795)
+@@ -55,16 +55,16 @@
+                 }
+             }
+         } catch (IOException e) {
+-        throw new RuntimeException(e);
+-    }
++            throw new RuntimeException(e);
++        }
+     }
+ 
+     public void setDaniaToList() {
+         //pobranie dań z bazy danych i przypisanie do TableView;
+         listaDanie.clear();
+-
++        // Zmieniono "FROM Danie" na "FROM danie"
+         List<Danie> result = Database.getSession().createQuery("FROM danie", Danie.class).getResultList();
+         listaDanie.addAll(result);
+     }
+ 
+-}
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/controllers/ZamowienieController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.radek.restauracja.controllers;\r\n\r\nimport javafx.beans.property.SimpleStringProperty;\r\nimport javafx.collections.FXCollections;\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.Initializable;\r\nimport javafx.scene.control.TableColumn;\r\nimport javafx.scene.control.TableView;\r\nimport javafx.scene.control.cell.PropertyValueFactory;\r\nimport org.radek.restauracja.classes.Danie;\r\nimport org.radek.restauracja.classes.Database;\r\nimport org.radek.restauracja.classes.Zamowienie;\r\nimport org.radek.restauracja.util.DateFormatterUtil;\r\n\r\nimport java.net.URL;\r\nimport java.util.List;\r\nimport java.util.ResourceBundle;\r\n\r\npublic class ZamowienieController implements Initializable {\r\n\r\n    @FXML\r\n    private TableView<Zamowienie> zamowieniaTable;\r\n    @FXML\r\n    private TableColumn<Zamowienie, String> klientCol;\r\n    @FXML\r\n    private TableColumn<Zamowienie, String> danieCol;\r\n    @FXML\r\n    private TableColumn<Zamowienie, String> statusCol;\r\n    @FXML\r\n    private TableColumn<Zamowienie, String> dataCol;\r\n\r\n    @Override\r\n    public void initialize(URL url, ResourceBundle resourceBundle) {\r\n        klientCol.setCellValueFactory(new PropertyValueFactory<Zamowienie, String>(\"klient\"));\r\n        danieCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDanie().getNazwa() + \" \" + cellData.getValue().getDanie().getCena() + \"zł.\"));\r\n        statusCol.setCellValueFactory(new PropertyValueFactory<Zamowienie, String>(\"status\"));\r\n        dataCol.setCellValueFactory(cellData -> new SimpleStringProperty(DateFormatterUtil.format(cellData.getValue().getDataZamowienia())));\r\n\r\n        setZamowieniaToTable();\r\n    }\r\n\r\n    public void setZamowieniaToTable() {\r\n        zamowieniaTable.getItems().clear();\r\n        Danie danie = new Danie();\r\n\r\n        List<Zamowienie> result = Database.getSession().createQuery(\"FROM zamowienie\", Zamowienie.class).getResultList();\r\n        zamowieniaTable.getItems().addAll(FXCollections.observableList(result));\r\n    }\r\n\r\n    public void selectItemToEdit(ActionEvent event) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java b/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java
+--- a/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java	(date 1748647639113)
+@@ -1,5 +1,7 @@
++// src/main/java/org/radek/restauracja/controllers/ZamowienieController.java
+ package org.radek.restauracja.controllers;
+ 
++import javafx.beans.property.SimpleDoubleProperty;
+ import javafx.beans.property.SimpleStringProperty;
+ import javafx.collections.FXCollections;
+ import javafx.event.ActionEvent;
+@@ -8,14 +10,17 @@
+ import javafx.scene.control.TableColumn;
+ import javafx.scene.control.TableView;
+ import javafx.scene.control.cell.PropertyValueFactory;
+-import org.radek.restauracja.classes.Danie;
++import org.hibernate.Session;
++import org.hibernate.query.Query;
+ import org.radek.restauracja.classes.Database;
+ import org.radek.restauracja.classes.Zamowienie;
+-import org.radek.restauracja.util.DateFormatterUtil;
++import org.radek.restauracja.classes.ZamowienieDanie; // DODAJ
++import org.radek.restauracja.util.DateFormatterUtil; // Upewnij się, że masz tę klasę lub zmień formatowanie
+ 
+ import java.net.URL;
+ import java.util.List;
+ import java.util.ResourceBundle;
++import java.util.stream.Collectors; // DODAJ
+ 
+ public class ZamowienieController implements Initializable {
+ 
+@@ -24,31 +29,51 @@
+     @FXML
+     private TableColumn<Zamowienie, String> klientCol;
+     @FXML
+-    private TableColumn<Zamowienie, String> danieCol;
++    private TableColumn<Zamowienie, String> danieCol; // Zmieniamy jego działanie
+     @FXML
+     private TableColumn<Zamowienie, String> statusCol;
+     @FXML
+     private TableColumn<Zamowienie, String> dataCol;
++    @FXML
++    private TableColumn<Zamowienie, Double> cenaCaloscCol; // Dodaj nową kolumnę na całkowitą cenę
+ 
+     @Override
+     public void initialize(URL url, ResourceBundle resourceBundle) {
+-        klientCol.setCellValueFactory(new PropertyValueFactory<Zamowienie, String>("klient"));
+-        danieCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDanie().getNazwa() + " " + cellData.getValue().getDanie().getCena() + "zł."));
+-        statusCol.setCellValueFactory(new PropertyValueFactory<Zamowienie, String>("status"));
+-        dataCol.setCellValueFactory(cellData -> new SimpleStringProperty(DateFormatterUtil.format(cellData.getValue().getDataZamowienia())));
++        klientCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getKlient().getLogin())); // Zakładam, że chcesz login klienta
++
++        danieCol.setCellValueFactory(cellData -> {
++            Zamowienie zamowienie = cellData.getValue();
++            // Zbierz nazwy dań i ich ilości
++            String daniaString = zamowienie.getPozycje().stream()
++                    .map(pozycja -> pozycja.getDanie().getNazwa() + " (x" + pozycja.getIlosc() + ")")
++                    .collect(Collectors.joining(", "));
++            return new SimpleStringProperty(daniaString);
++        });
++
++        statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
++        dataCol.setCellValueFactory(cellData -> new SimpleStringProperty(DateFormatterUtil.format(cellData.getValue().getDataZamowienia()))); // Upewnij się, że masz DateFormatterUtil lub zmień formatowanie
++        cenaCaloscCol.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getTotalPrice()).asObject()); // Nowa kolumna
+ 
+         setZamowieniaToTable();
+     }
+ 
+     public void setZamowieniaToTable() {
+         zamowieniaTable.getItems().clear();
+-        Danie danie = new Danie();
+-
+-        List<Zamowienie> result = Database.getSession().createQuery("FROM zamowienie", Zamowienie.class).getResultList();
+-        zamowieniaTable.getItems().addAll(FXCollections.observableList(result));
+-    }
+-
+-    public void selectItemToEdit(ActionEvent event) {
+-
++        try (Session session = Database.getFactory().openSession()) {
++            session.beginTransaction();
++            // Użyj JOIN FETCH, aby załadować pozycje zamówienia od razu
++            Query<Zamowienie> query = session.createQuery("SELECT z FROM zamowienie z LEFT JOIN FETCH z.pozycje", Zamowienie.class);
++            List<Zamowienie> result = query.getResultList();
++            zamowieniaTable.setItems(FXCollections.observableArrayList(result));
++            session.getTransaction().commit();
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
+     }
+-}
++
++    // Dodaj to do ZamowienieController.java
++    @FXML
++    private void refreshTable(ActionEvent event) {
++        setZamowieniaToTable();
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/Koszyk.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/Koszyk.java b/src/main/java/org/radek/restauracja/classes/Koszyk.java
+new file mode 100644
+--- /dev/null	(date 1748648567359)
++++ b/src/main/java/org/radek/restauracja/classes/Koszyk.java	(date 1748648567359)
+@@ -0,0 +1,107 @@
++package org.radek.restauracja.classes;
++
++import jakarta.persistence.*;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Objects;
++
++@Entity(name = "koszyk")
++@Table(name = "koszyk")
++public class Koszyk {
++
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private int id;
++
++    @OneToOne(fetch = FetchType.LAZY) // Changed to OneToOne based on typical cart behavior
++    @JoinColumn(name = "klient_id", nullable = false)
++    private Klient klient;
++
++    @Version
++    private int version;
++
++    @OneToMany(mappedBy = "koszyk", cascade = CascadeType.ALL, orphanRemoval = true)
++    private List<KoszykDanie> pozycjeKoszyka = new ArrayList<>();
++
++    public Koszyk() {
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public Klient getKlient() {
++        return klient;
++    }
++
++    public void setKlient(Klient klient) {
++        this.klient = klient;
++    }
++
++    public int getVersion() {
++        return version;
++    }
++
++    public void setVersion(int version) {
++        this.version = version;
++    }
++
++    public List<KoszykDanie> getPozycjeKoszyka() {
++        return pozycjeKoszyka;
++    }
++
++    public void setPozycjeKoszyka(List<KoszykDanie> pozycjeKoszyka) {
++        this.pozycjeKoszyka = pozycjeKoszyka;
++    }
++
++    public void addDanieToKoszyk(Danie danie, int quantity) {
++        KoszykDanie existingItem = findKoszykDanie(danie);
++        if (existingItem != null) {
++            existingItem.setIlosc(existingItem.getIlosc() + quantity);
++        } else {
++            KoszykDanie newItem = new KoszykDanie();
++            newItem.setKoszyk(this);
++            newItem.setDanie(danie);
++            newItem.setIlosc(quantity);
++            this.pozycjeKoszyka.add(newItem);
++        }
++    }
++
++    public void removeDanieFromKoszyk(Danie danie) {
++        KoszykDanie itemToRemove = findKoszykDanie(danie);
++        if (itemToRemove != null) {
++            this.pozycjeKoszyka.remove(itemToRemove);
++            itemToRemove.setKoszyk(null); // Detach from parent
++        }
++    }
++
++    private KoszykDanie findKoszykDanie(Danie danie) {
++        for (KoszykDanie item : pozycjeKoszyka) {
++            if (Objects.equals(item.getDanie().getId(), danie.getId())) {
++                return item;
++            }
++        }
++        return null;
++    }
++
++    // New method to calculate total price of the cart
++    public double getTotalPrice() {
++        return pozycjeKoszyka.stream()
++                .mapToDouble(item -> item.getDanie().getCena() * item.getIlosc())
++                .sum();
++    }
++
++    @Override
++    public String toString() {
++        return "Koszyk{" +
++                "id=" + id +
++                ", klient=" + (klient != null ? klient.getLogin() : "null") +
++                ", version=" + version +
++                ", pozycjeKoszyka=" + pozycjeKoszyka.size() +
++                '}';
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/PozycjaZamowienia.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/PozycjaZamowienia.java b/src/main/java/org/radek/restauracja/classes/PozycjaZamowienia.java
+new file mode 100644
+--- /dev/null	(date 1748646312726)
++++ b/src/main/java/org/radek/restauracja/classes/PozycjaZamowienia.java	(date 1748646312726)
+@@ -0,0 +1,93 @@
++package org.radek.restauracja.classes;
++
++import jakarta.persistence.*;
++import java.math.BigDecimal;
++
++@Entity
++@Table(name = "pozycja_zamowienia")
++public class PozycjaZamowienia {
++
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long id;
++
++    @ManyToOne(fetch = FetchType.LAZY) // Lazy loading dla relacji ManyToOne
++    @JoinColumn(name = "zamowienie_id", nullable = false)
++    private Zamowienie zamowienie;
++
++    @ManyToOne(fetch = FetchType.LAZY) // Lazy loading dla relacji ManyToOne
++    @JoinColumn(name = "danie_id", nullable = false)
++    private Danie danie;
++
++    private int ilosc;
++
++    @Column(name = "cena_jednostkowa", nullable = false)
++    private BigDecimal cenaJednostkowa; // Cena dania w momencie złożenia zamówienia
++
++    // Konstruktory
++    public PozycjaZamowienia() {}
++
++    public PozycjaZamowienia(Zamowienie zamowienie, Danie danie, int ilosc, BigDecimal cenaJednostkowa) {
++        this.zamowienie = zamowienie;
++        this.danie = danie;
++        this.ilosc = ilosc;
++        this.cenaJednostkowa = cenaJednostkowa;
++    }
++
++    // Gettery i Settery
++
++    public Long getId() {
++        return id;
++    }
++
++    public void setId(Long id) {
++        this.id = id;
++    }
++
++    public Zamowienie getZamowienie() {
++        return zamowienie;
++    }
++
++    public void setZamowienie(Zamowienie zamowienie) {
++        this.zamowienie = zamowienie;
++    }
++
++    public Danie getDanie() {
++        return danie;
++    }
++
++    public void setDanie(Danie danie) {
++        this.danie = danie;
++    }
++
++    public int getIlosc() {
++        return ilosc;
++    }
++
++    public void setIlosc(int ilosc) {
++        this.ilosc = ilosc;
++    }
++
++    public BigDecimal getCenaJednostkowa() {
++        return cenaJednostkowa;
++    }
++
++    public void setCenaJednostkowa(BigDecimal cenaJednostkowa) {
++        this.cenaJednostkowa = cenaJednostkowa;
++    }
++
++    // Metoda pomocnicza do obliczenia całkowitej ceny dla tej pozycji
++    public BigDecimal getCalkowitaCenaPozycji() {
++        return cenaJednostkowa.multiply(BigDecimal.valueOf(ilosc));
++    }
++
++    @Override
++    public String toString() {
++        return "PozycjaZamowienia{" +
++                "id=" + id +
++                ", danie=" + (danie != null ? danie.getNazwa() : "null") +
++                ", ilosc=" + ilosc +
++                ", cenaJednostkowa=" + cenaJednostkowa +
++                '}';
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/controllers/KoszykController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/controllers/KoszykController.java b/src/main/java/org/radek/restauracja/controllers/KoszykController.java
+new file mode 100644
+--- /dev/null	(date 1748649844159)
++++ b/src/main/java/org/radek/restauracja/controllers/KoszykController.java	(date 1748649844159)
+@@ -0,0 +1,178 @@
++// src/main/java/org/radek/restauracja/controllers/KoszykController.java
++package org.radek.restauracja.controllers;
++
++import javafx.collections.FXCollections;
++import javafx.collections.ObservableList;
++import javafx.event.ActionEvent;
++import javafx.fxml.FXML;
++import javafx.fxml.Initializable;
++import javafx.scene.control.Label;
++import javafx.scene.control.TableColumn;
++import javafx.scene.control.TableView;
++import javafx.scene.control.cell.PropertyValueFactory;
++import org.hibernate.Session;
++import org.radek.restauracja.classes.*;
++import java.net.URL;
++import java.sql.Timestamp;
++import java.time.LocalDateTime;
++import java.util.ResourceBundle;
++
++public class KoszykController implements Initializable { // Upewnij się, że implements Initializable jest obecne
++
++    @FXML
++    private TableView<KoszykDanie> koszykTable;
++    @FXML
++    private TableColumn<KoszykDanie, String> danieNazwaCol;
++    @FXML
++    private TableColumn<KoszykDanie, Integer> iloscCol;
++    @FXML
++    private TableColumn<KoszykDanie, Double> cenaJednostkowaCol;
++    @FXML
++    private TableColumn<KoszykDanie, Double> cenaCalkowitaCol;
++    @FXML
++    private Label totalCostLabel;
++
++    private ObservableList<KoszykDanie> pozycjeKoszyka;
++
++    @Override
++    public void initialize(URL url, ResourceBundle resourceBundle) {
++        // Ustawienie fabryk wartości dla kolumn tabeli
++        danieNazwaCol.setCellValueFactory(cellData -> cellData.getValue().getDanie().nazwaProperty());
++        iloscCol.setCellValueFactory(new PropertyValueFactory<>("ilosc"));
++        cenaJednostkowaCol.setCellValueFactory(cellData -> cellData.getValue().getDanie().cenaProperty().asObject());
++        cenaCalkowitaCol.setCellValueFactory(cellData -> cellData.getValue().totalPriceProperty().asObject());
++
++        // Inicjalizacja listy pozycji koszyka
++        pozycjeKoszyka = FXCollections.observableArrayList();
++        koszykTable.setItems(pozycjeKoszyka);
++
++        // Załadowanie danych koszyka po inicjalizacji
++        loadKoszykData();
++    }
++
++    public void loadKoszykData() {
++        pozycjeKoszyka.clear();
++        double totalCost = 0.0;
++        try (Session session = Database.getFactory().openSession()) {
++            session.beginTransaction();
++            // Ponieważ Koszyk ma FetchType.LAZY, musimy go załadować
++            Klient klient = session.get(Klient.class, CurrentKlient.getKlient().getId());
++            if (klient != null && klient.getKoszyk() != null) {
++                // Załaduj pozycje koszyka, upewniając się, że Danie jest również załadowane
++                for (KoszykDanie kd : klient.getKoszyk().getPozycje()) {
++                    session.refresh(kd); // Upewnij się, że obiekt jest w bieżącej sesji
++                    session.refresh(kd.getDanie()); // Upewnij się, że powiązane Danie jest w bieżącej sesji
++                    pozycjeKoszyka.add(kd);
++                    totalCost += kd.getIlosc() * kd.getDanie().getCena();
++                }
++            }
++            session.getTransaction().commit();
++        } catch (Exception e) {
++            e.printStackTrace();
++            InfoAlert.errorAlert("Błąd ładowania koszyka", "Wystąpił błąd podczas ładowania zawartości koszyka.");
++        }
++        totalCostLabel.setText(String.format("%.2f zł", totalCost));
++    }
++
++
++    @FXML
++    private void placeOrder(ActionEvent event) {
++        if (pozycjeKoszyka.isEmpty()) {
++            InfoAlert.infoAlert("Pusty koszyk", "Nie możesz złożyć zamówienia z pustego koszyka.");
++            return;
++        }
++
++        try (Session session = Database.getFactory().openSession()) {
++            session.beginTransaction();
++
++            // Upewnij się, że klient i jego koszyk są w bieżącej sesji i są aktualne
++            Klient klient = session.get(Klient.class, CurrentKlient.getKlient().getId());
++            Koszyk koszyk = klient.getKoszyk();
++
++            if (koszyk == null || koszyk.getPozycje().isEmpty()) {
++                InfoAlert.infoAlert("Pusty koszyk", "Nie możesz złożyć zamówienia z pustego koszyka.");
++                session.getTransaction().rollback();
++                return;
++            }
++
++            // 1. Stwórz nowe zamówienie
++            Zamowienie noweZamowienie = new Zamowienie();
++            noweZamowienie.setKlient(klient);
++            noweZamowienie.setStatus("oczekujące");
++            noweZamowienie.setDataZamowienia(Timestamp.valueOf(LocalDateTime.now()));
++
++            session.persist(noweZamowienie); // Zapisz zamówienie, aby otrzymało ID
++            session.flush(); // Upewnij się, że ID jest dostępne przed dodaniem pozycji
++
++            // 2. Dodaj pozycje z koszyka do zamówienia
++            for (KoszykDanie pozycjaKoszyka : koszyk.getPozycje()) {
++                // Znajdź Danie w bieżącej sesji
++                Danie persistentDanie = session.get(Danie.class, pozycjaKoszyka.getDanie().getId());
++
++                ZamowienieDanie zamowienieDanie = new ZamowienieDanie(noweZamowienie, persistentDanie, pozycjaKoszyka.getIlosc());
++                noweZamowienie.getPozycje().add(zamowienieDanie);
++                session.persist(zamowienieDanie); // Zapisz każdą pozycję zamówienia
++            }
++
++            // 3. Po złożeniu zamówienia, opróżnij koszyk
++            koszyk.getPozycje().clear(); // To usunie pozycje z koszyka w bazie dzięki orphanRemoval
++            session.merge(koszyk); // Zapisz zmiany w koszyku
++
++            session.getTransaction().commit();
++            InfoAlert.infoAlert("Zamówienie złożone", "Twoje zamówienie o wartości " + String.format("%.2f zł", noweZamowienie.getTotalPrice()) + " zostało pomyślnie złożone!");
++            loadKoszykData(); // Odśwież widok koszyka (powinien być pusty)
++        } catch (Exception e) {
++            if (Database.getTransaction() != null && Database.getTransaction().isActive()) {
++                Database.getTransaction().rollback();
++            }
++            e.printStackTrace();
++            InfoAlert.errorAlert("Błąd składania zamówienia", "Wystąpił błąd podczas składania zamówienia.");
++        }
++    }
++
++    @FXML
++    private void clearKoszyk(ActionEvent event) {
++        if (pozycjeKoszyka.isEmpty()) {
++            InfoAlert.infoAlert("Pusty koszyk", "Koszyk jest już pusty.");
++            return;
++        }
++
++        try (Session session = Database.getFactory().openSession()) {
++            session.beginTransaction();
++            Klient klient = session.get(Klient.class, CurrentKlient.getKlient().getId());
++            if (klient != null && klient.getKoszyk() != null) {
++                session.merge(klient.getKoszyk()); // Zapisz zmiany w koszyku
++            }
++            session.getTransaction().commit();
++            InfoAlert.infoAlert("Koszyk wyczyszczony", "Zawartość koszyka została usunięta.");
++            loadKoszykData(); // Odśwież widok koszyka
++        } catch (Exception e) {
++            e.printStackTrace();
++            InfoAlert.errorAlert("Błąd czyszczenia koszyka", "Wystąpił błąd podczas czyszczenia koszyka.");
++        }
++    }
++
++    @FXML
++    private void removeSelectedItem(ActionEvent event) {
++        KoszykDanie selectedItem = koszykTable.getSelectionModel().getSelectedItem();
++        if (selectedItem == null) {
++            InfoAlert.emptySelectionAlert();
++            return;
++        }
++
++        try (Session session = Database.getFactory().openSession()) {
++            session.beginTransaction();
++            // Znajdź persystentny obiekt KoszykDanie w bieżącej sesji
++            KoszykDanie persistentItem = session.get(KoszykDanie.class, selectedItem.getId());
++            if (persistentItem != null) {
++                session.remove(persistentItem);
++            }
++            session.getTransaction().commit();
++            InfoAlert.infoAlert("Usunięto pozycję", "Wybrana pozycja została usunięta z koszyka.");
++            loadKoszykData(); // Odśwież widok koszyka
++        } catch (Exception e) {
++            e.printStackTrace();
++            InfoAlert.errorAlert("Błąd usuwania", "Wystąpił błąd podczas usuwania pozycji z koszyka.");
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/resources/org/radek/restauracja/koszyk-panel.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/radek/restauracja/koszyk-panel.fxml b/src/main/resources/org/radek/restauracja/koszyk-panel.fxml
+new file mode 100644
+--- /dev/null	(date 1748647321559)
++++ b/src/main/resources/org/radek/restauracja/koszyk-panel.fxml	(date 1748647321559)
+@@ -0,0 +1,86 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.geometry.Insets?>
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.Label?>
++<?import javafx.scene.control.TableColumn?>
++<?import javafx.scene.control.TableView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.HBox?>
++<?import javafx.scene.layout.VBox?>
++<?import javafx.scene.text.Font?>
++
++<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-pane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.radek.restauracja.controllers.KoszykController">
++    <children>
++        <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="580.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
++            <children>
++                <Label styleClass="text-label-panel" text="Twój koszyk">
++                    <font>
++                        <Font name="System Bold" size="24.0" />
++                    </font>
++                    <VBox.margin>
++                        <Insets bottom="20.0" top="10.0" />
++                    </VBox.margin>
++                </Label>
++                <TableView fx:id="koszykTable" prefHeight="400.0" prefWidth="760.0">
++                    <columns>
++                        <TableColumn fx:id="danieNazwaCol" prefWidth="300.0" text="Danie" />
++                        <TableColumn fx:id="danieCenaCol" prefWidth="100.0" text="Cena jednostkowa" />
++                        <TableColumn fx:id="iloscCol" prefWidth="100.0" text="Ilość" />
++                        <TableColumn fx:id="sumaCol" prefWidth="100.0" text="Suma" />
++                    </columns>
++                    <VBox.margin>
++                        <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
++                    </VBox.margin>
++                </TableView>
++                <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="760.0">
++                    <children>
++                        <Label text="Całkowita cena: ">
++                            <font>
++                                <Font name="System Bold" size="18.0" />
++                            </font>
++                        </Label>
++                        <Label fx:id="totalPriceLabel" text="0.00 zł">
++                            <font>
++                                <Font name="System Bold" size="18.0" />
++                            </font>
++                            <HBox.margin>
++                                <Insets right="20.0" />
++                            </HBox.margin>
++                        </Label>
++                    </children>
++                    <VBox.margin>
++                        <Insets right="10.0" />
++                    </VBox.margin>
++                </HBox>
++                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
++                    <children>
++                        <Button mnemonicParsing="false" onAction="#removeSelectedDanie" prefHeight="30.0" prefWidth="150.0" text="Usuń zaznaczone" HBox.hgrow="NEVER">
++                            <HBox.margin>
++                                <Insets right="20.0" />
++                            </HBox.margin>
++                        </Button>
++                        <Button mnemonicParsing="false" onAction="#increaseQuantity" prefHeight="30.0" prefWidth="150.0" text="Zwiększ ilość" HBox.hgrow="NEVER">
++                            <HBox.margin>
++                                <Insets right="20.0" />
++                            </HBox.margin>
++                        </Button>
++                        <Button mnemonicParsing="false" onAction="#decreaseQuantity" prefHeight="30.0" prefWidth="150.0" text="Zmniejsz ilość" HBox.hgrow="NEVER">
++                            <HBox.margin>
++                                <Insets right="20.0" />
++                            </HBox.margin>
++                        </Button>
++                        <Button mnemonicParsing="false" onAction="#placeOrder" prefHeight="30.0" prefWidth="150.0" text="Złóż zamówienie" styleClass="button-green">
++                            <HBox.margin>
++                                <Insets />
++                            </HBox.margin>
++                        </Button>
++                    </children>
++                    <VBox.margin>
++                        <Insets top="20.0" />
++                    </VBox.margin>
++                </HBox>
++            </children>
++        </VBox>
++    </children>
++</AnchorPane>
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java b/src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java
+new file mode 100644
+--- /dev/null	(date 1748647480528)
++++ b/src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java	(date 1748647480528)
+@@ -0,0 +1,56 @@
++// src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java
++package org.radek.restauracja.classes;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class ZamowienieDanieId implements Serializable {
++
++    @Column(name = "zamowienie_id")
++    private Long zamowienieId;
++
++    @Column(name = "danie_id")
++    private Integer danieId;
++
++    public ZamowienieDanieId() {
++    }
++
++    public ZamowienieDanieId(Long zamowienieId, Integer danieId) {
++        this.zamowienieId = zamowienieId;
++        this.danieId = danieId;
++    }
++
++    // Getters and Setters
++    public Long getZamowienieId() {
++        return zamowienieId;
++    }
++
++    public void setZamowienieId(Long zamowienieId) {
++        this.zamowienieId = zamowienieId;
++    }
++
++    public Integer getDanieId() {
++        return danieId;
++    }
++
++    public void setDanieId(Integer danieId) {
++        this.danieId = danieId;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        ZamowienieDanieId that = (ZamowienieDanieId) o;
++        return Objects.equals(getZamowienieId(), that.getZamowienieId()) &&
++                Objects.equals(getDanieId(), that.getDanieId());
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(getZamowienieId(), getDanieId());
++    }
++}
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java b/src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java
+new file mode 100644
+--- /dev/null	(date 1748647460398)
++++ b/src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java	(date 1748647460398)
+@@ -0,0 +1,85 @@
++// src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java
++package org.radek.restauracja.classes;
++
++import jakarta.persistence.*;
++import java.io.Serializable;
++
++@Entity
++@Table(name = "zamowienie_danie")
++public class ZamowienieDanie implements Serializable {
++
++    @EmbeddedId
++    private ZamowienieDanieId id;
++
++    @ManyToOne
++    @MapsId("zamowienieId")
++    @JoinColumn(name = "zamowienie_id")
++    private Zamowienie zamowienie;
++
++    @ManyToOne
++    @MapsId("danieId")
++    @JoinColumn(name = "danie_id")
++    private Danie danie;
++
++    @Column(nullable = false)
++    private int ilosc;
++
++    public ZamowienieDanie() {
++    }
++
++    public ZamowienieDanie(Zamowienie zamowienie, Danie danie, int ilosc) {
++        this.zamowienie = zamowienie;
++        this.danie = danie;
++        this.ilosc = ilosc;
++        this.id = new ZamowienieDanieId(zamowienie.getId(), danie.getId());
++    }
++
++    // Getters and Setters
++    public ZamowienieDanieId getId() {
++        return id;
++    }
++
++    public void setId(ZamowienieDanieId id) {
++        this.id = id;
++    }
++
++    public Zamowienie getZamowienie() {
++        return zamowienie;
++    }
++
++    public void setZamowienie(Zamowienie zamowienie) {
++        this.zamowienie = zamowienie;
++    }
++
++    public Danie getDanie() {
++        return danie;
++    }
++
++    public void setDanie(Danie danie) {
++        this.danie = danie;
++    }
++
++    public int getIlosc() {
++        return ilosc;
++    }
++
++    public void setIlosc(int ilosc) {
++        this.ilosc = ilosc;
++    }
++
++    // Dodaj metody equals i hashCode dla klucza złożonego
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        ZamowienieDanie that = (ZamowienieDanie) o;
++        return ilosc == that.ilosc &&
++                getZamowienie().equals(that.getZamowienie()) &&
++                getDanie().equals(that.getDanie());
++    }
++
++    @Override
++    public int hashCode() {
++        return java.util.Objects.hash(getZamowienie(), getDanie(), ilosc);
++    }
++}
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"ee29896f-2329-4723-a3ae-414b4a8d676b\" name=\"Changes\" comment=\"prosty system zamawiania, obsługiwania zamówień\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pictures/foodiez-logo.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/style.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Exception\" />\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;radekxpl53&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/radekxpl53/restauracja&quot;,\r\n    &quot;accountId&quot;: &quot;72af67fe-e241-47cc-a89c-7a7840a4dc13&quot;\r\n  }\r\n}</component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 7\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2wonOFUnja4bAsNMtapGVIIGB48\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/rados/AppData/Local/SceneBuilder/SceneBuilder.exe&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\ricot\\IdeaProjects\\restauracja\\src\\main\\resources\\org\\radek\\restauracja\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\rados\\IdeaProjects\\restauracja\\src\\main\\resources\\org\\radek\\restauracja\\pictures\" />\r\n      <recent name=\"C:\\Users\\rados\\IdeaProjects\\restauracja\\src\\main\\resources\\org\\radek\\restauracja\\icons\" />\r\n      <recent name=\"C:\\Users\\rados\\IdeaProjects\\restauracja\\src\\main\\resources\\org\\radek\\restauracja\" />\r\n      <recent name=\"C:\\Users\\rados\\IdeaProjects\\restauracja\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\ricot\\IdeaProjects\\restauracja\\src\\main\\resources\\META-INF\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"org.radek.restauracja\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Unnamed\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"org.radek.restauracja.MainApplication\" />\r\n      <module name=\"restauracja\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"StructureViewState\">\r\n    <option name=\"selectedTab\" value=\"Logical\" />\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration>C:\\Users\\ricot\\AppData\\Roaming\\Subversion</configuration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"ee29896f-2329-4723-a3ae-414b4a8d676b\" name=\"Changes\" comment=\"\" />\r\n      <created>1746716764599</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1746716764599</updated>\r\n      <workItem from=\"1746716765689\" duration=\"202000\" />\r\n      <workItem from=\"1746730377124\" duration=\"3970000\" />\r\n      <workItem from=\"1746734376668\" duration=\"5435000\" />\r\n      <workItem from=\"1746783924992\" duration=\"4897000\" />\r\n      <workItem from=\"1746788946119\" duration=\"399000\" />\r\n      <workItem from=\"1746789356282\" duration=\"13765000\" />\r\n      <workItem from=\"1746805087696\" duration=\"185000\" />\r\n      <workItem from=\"1746810801382\" duration=\"7952000\" />\r\n      <workItem from=\"1746868366692\" duration=\"1286000\" />\r\n      <workItem from=\"1746872942931\" duration=\"3494000\" />\r\n      <workItem from=\"1747036225602\" duration=\"961000\" />\r\n      <workItem from=\"1747040049882\" duration=\"191000\" />\r\n      <workItem from=\"1747040633921\" duration=\"255000\" />\r\n      <workItem from=\"1747056419573\" duration=\"719000\" />\r\n      <workItem from=\"1747127825314\" duration=\"3676000\" />\r\n      <workItem from=\"1747135758998\" duration=\"3615000\" />\r\n      <workItem from=\"1747141552113\" duration=\"7101000\" />\r\n      <workItem from=\"1748167987464\" duration=\"2140000\" />\r\n      <workItem from=\"1748241687123\" duration=\"1292000\" />\r\n      <workItem from=\"1748267454172\" duration=\"86000\" />\r\n      <workItem from=\"1748336431164\" duration=\"1393000\" />\r\n      <workItem from=\"1748351413966\" duration=\"6676000\" />\r\n      <workItem from=\"1748625744976\" duration=\"10499000\" />\r\n      <workItem from=\"1748645032416\" duration=\"668000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"zmodyfikowany plik .gitignore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746788603703</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746788603703</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"zmodyfikowany plik .gitignore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746788714272</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746788714272</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"zmiany umożliwiające dodawanie i edycję pól dań w bazie danych.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746792225366</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746792225366</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Dodane wyjątki umożliwiające wykrywanie będów związanych z logowanie. Alerty Popup informujące o błędach. Panel logowania (jeszcze bez rejestracji). Sprawdzanie zgodności logowania z bazą danych (jeszcze bez szyfrowania). Dodany panel administracyjy TabPane z zakładkami.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746802060723</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746802060723</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Usprawniony proces rejestracji i logowania.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746815860543</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746815860543</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"dodane odznaczanie dań.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1746826644635</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1746826644635</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"prosty system zamawiania, obsługiwania zamówień\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748267499245</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748267499245</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <ignored-roots>\r\n      <path value=\"$PROJECT_DIR$\" />\r\n    </ignored-roots>\r\n    <MESSAGE value=\"zmodyfikowany plik .gitignore\" />\r\n    <MESSAGE value=\"initial commit\" />\r\n    <MESSAGE value=\"zmiany umożliwiające dodawanie i edycję pól dań w bazie danych.\" />\r\n    <MESSAGE value=\"Dodane wyjątki umożliwiające wykrywanie będów związanych z logowanie. Alerty Popup informujące o błędach. Panel logowania (jeszcze bez rejestracji). Sprawdzanie zgodności logowania z bazą danych (jeszcze bez szyfrowania). Dodany panel administracyjy TabPane z zakładkami.\" />\r\n    <MESSAGE value=\"Usprawniony proces rejestracji i logowania.\" />\r\n    <MESSAGE value=\"dodane odznaczanie dań.\" />\r\n    <MESSAGE value=\"prosty system zamawiania, obsługiwania zamówień\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"prosty system zamawiania, obsługiwania zamówień\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9dcb578e75aa298ed78d695f71426bc0f05119bf)
++++ b/.idea/workspace.xml	(date 1748649844201)
+@@ -4,27 +4,24 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="prosty system zamawiania, obsługiwania zamówień">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pictures/foodiez-logo.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/style.css" afterDir="false" />
++    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji">
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Koszyk.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/KoszykDanie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/PozycjaZamowienia.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/ZamowienieDanie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/ZamowienieDanieId.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/KoszykController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/koszyk-panel.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/MainApplication.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/AdminController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/DanieEditController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/MainController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/PracownikEditController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SceneController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/SetUpPracownikController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Danie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Danie.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Database.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/InfoAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/InfoAlert.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Klient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Klient.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Zamowienie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/classes/Zamowienie.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ItemController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/UserController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/radek/restauracja/controllers/ZamowienieController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/admin-panel.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/dania-table-edit.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/main-window.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/pracownicy-table-edit.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/register-panel.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/set-up-login-password.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/item.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/user-panel.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/radek/restauracja/zamowienia-panel.fxml" afterDir="false" />
+     </list>
+@@ -167,7 +164,7 @@
+       <workItem from="1748336431164" duration="1393000" />
+       <workItem from="1748351413966" duration="6676000" />
+       <workItem from="1748625744976" duration="10499000" />
+-      <workItem from="1748645032416" duration="668000" />
++      <workItem from="1748645032416" duration="4662000" />
+     </task>
+     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
+       <option name="closed" value="true" />
+@@ -225,7 +222,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1748267499245</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji">
++      <option name="closed" value="true" />
++      <created>1748645928585</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1748645928585</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -253,6 +258,7 @@
+     <MESSAGE value="Usprawniony proces rejestracji i logowania." />
+     <MESSAGE value="dodane odznaczanie dań." />
+     <MESSAGE value="prosty system zamawiania, obsługiwania zamówień" />
+-    <option name="LAST_COMMIT_MESSAGE" value="prosty system zamawiania, obsługiwania zamówień" />
++    <MESSAGE value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
++    <option name="LAST_COMMIT_MESSAGE" value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/org/radek/restauracja/classes/KoszykDanie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/radek/restauracja/classes/KoszykDanie.java b/src/main/java/org/radek/restauracja/classes/KoszykDanie.java
+new file mode 100644
+--- /dev/null	(date 1748649776627)
++++ b/src/main/java/org/radek/restauracja/classes/KoszykDanie.java	(date 1748649776627)
+@@ -0,0 +1,94 @@
++// src/main/java/org/radek/restauracja/classes/KoszykDanie.java
++package org.radek.restauracja.classes;
++
++import jakarta.persistence.*;
++import javafx.beans.property.DoubleProperty; // DODAJ
++import javafx.beans.property.SimpleDoubleProperty; // DODAJ
++import java.io.Serializable;
++import java.util.Objects;
++
++@Entity
++@Table(name = "koszyk_danie")
++public class KoszykDanie implements Serializable {
++
++    @EmbeddedId
++    private int id;
++
++    @ManyToOne
++    @MapsId("koszykId")
++    @JoinColumn(name = "koszyk_id")
++    private Koszyk koszyk;
++
++    @ManyToOne
++    @MapsId("danieId")
++    @JoinColumn(name = "danie_id")
++    private Danie danie;
++
++    private int ilosc;
++
++    public KoszykDanie() {}
++
++    public KoszykDanie(Koszyk koszyk, Danie danie, int ilosc) {
++        this.koszyk = koszyk;
++        this.danie = danie;
++        this.ilosc = ilosc;
++    }
++
++    // Getters and setters
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public Koszyk getKoszyk() {
++        return koszyk;
++    }
++
++    public void setKoszyk(Koszyk koszyk) {
++        this.koszyk = koszyk;
++    }
++
++    public Danie getDanie() {
++        return danie;
++    }
++
++    public void setDanie(Danie danie) {
++        this.danie = danie;
++    }
++
++    public int getIlosc() {
++        return ilosc;
++    }
++
++    public void setIlosc(int ilosc) {
++        this.ilosc = ilosc;
++    }
++
++    // Metoda do obliczania całkowitej ceny dla tej pozycji
++    public double getTotalPrice() {
++        return danie.getCena() * ilosc;
++    }
++
++    // DODAJ WŁAŚCIWOŚĆ JAVAFX
++    public DoubleProperty totalPriceProperty() {
++        return new SimpleDoubleProperty(getTotalPrice());
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        KoszykDanie that = (KoszykDanie) o;
++        return ilosc == that.ilosc &&
++                Objects.equals(koszyk, that.koszyk) &&
++                Objects.equals(danie, that.danie);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(koszyk, danie, ilosc);
++    }
++}
+\ No newline at end of file
