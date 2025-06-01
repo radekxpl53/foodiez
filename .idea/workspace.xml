@@ -4,49 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="poprawiona przejrzystość kodu, zmiana nazwy projektu">
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="zmiana nazwy package.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/CartDish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/CartDishId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/PositionOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/CartController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/cart-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/pictures/cart-icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/CurrentUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/CurrentUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/InfoAlert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/InfoAlert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Osoba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/classes/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/DishesEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/DishesEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/EmployeesEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/EmployeesEditController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/InfoBoxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/InfoBoxController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/SceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/SceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/SetUpEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/SetUpEmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/exceptions/EmptyFieldException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/exceptions/EmptyFieldException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/exceptions/WrongEmailException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/exceptions/WrongEmailException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/exceptions/WrongPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/exceptions/WrongPasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/radek/foodiez/util/DateFormatterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/util/DateFormatterUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/admin-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/admin-panel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/dishes-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/dishes-table-edit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/employees-table-edit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/employees-table-edit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/info-box.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/info-box.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/item.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/main-window.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/main-window.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/order-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/order-panel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/pictures/foodiez-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/pictures/foodiez-icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/pictures/foodiez-logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/pictures/foodiez-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/register-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/register-panel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/set-up-login-password.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/set-up-login-password.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/radek/foodiez/user-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/user-panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Dish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/EmployeesEditController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/EmployeesEditController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/foodiez/admin-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/admin-panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/foodiez/info-box.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/info-box.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/foodiez/item.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/item.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/foodiez/order-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/order-panel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/foodiez/user-panel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/foodiez/user-panel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +90,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rados/IdeaProjects/foodiez",
+    "last_opened_file_path": "C:/Users/rados/IdeaProjects/foodiez/src/main/resources/org/foodiez/pictures",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -124,6 +106,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rados\IdeaProjects\foodiez\src\main\resources\org\foodiez\pictures" />
       <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -139,7 +122,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="org.radek.foodiez.MainApplication" />
+      <option name="MAIN_CLASS_NAME" value="org.foodiez.MainApplication" />
       <module name="foodiez" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,7 +176,8 @@
       <workItem from="1748625744976" duration="10499000" />
       <workItem from="1748645032416" duration="19835000" />
       <workItem from="1748680287431" duration="3831000" />
-      <workItem from="1748685383920" duration="3775000" />
+      <workItem from="1748685383920" duration="14996000" />
+      <workItem from="1748771847978" duration="8292000" />
     </task>
     <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
       <option name="closed" value="true" />
@@ -283,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748688237170</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="zmiana nazwy package.">
+      <option name="closed" value="true" />
+      <created>1748691618960</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748691618960</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +306,7 @@
     <MESSAGE value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
     <MESSAGE value="Rozbudowa systemu obsługi zamówień. Zmiany w oknie rejestracji." />
     <MESSAGE value="poprawiona przejrzystość kodu, zmiana nazwy projektu" />
-    <option name="LAST_COMMIT_MESSAGE" value="poprawiona przejrzystość kodu, zmiana nazwy projektu" />
+    <MESSAGE value="zmiana nazwy package." />
+    <option name="LAST_COMMIT_MESSAGE" value="zmiana nazwy package." />
   </component>
 </project>

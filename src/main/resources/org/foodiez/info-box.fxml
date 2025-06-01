@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="200.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.foodiez.controllers.InfoBoxController">
    <children>
       <VBox layoutX="250.0" layoutY="93.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -15,12 +14,12 @@
             <VBox prefHeight="179.0" prefWidth="280.0" spacing="10.0" styleClass="vbox-panel">
                <children>
                   <Label fx:id="titleLabel" alignment="TOP_LEFT" prefHeight="23.0" prefWidth="247.0" style="-fx-font-size: 17;" text="Info!" />
-                  <Label fx:id="contentLabel" alignment="TOP_LEFT" prefHeight="65.0" prefWidth="249.0" text="Zamówieine złożone" />
+                  <Label fx:id="contentLabel" alignment="TOP_LEFT" prefHeight="65.0" prefWidth="249.0" text="Zamówieine złożone" wrapText="true" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="99.0" prefWidth="300.0">
                <children>
-                  <Button fx:id="button" onMouseClicked="#close" mnemonicParsing="false" prefHeight="33.0" prefWidth="81.0" text="Ok" />
+                  <Button fx:id="button" mnemonicParsing="false" onMouseClicked="#close" prefHeight="33.0" prefWidth="81.0" text="Ok" />
                </children>
             </HBox>
          </children>

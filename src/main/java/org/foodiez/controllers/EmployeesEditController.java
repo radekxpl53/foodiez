@@ -77,36 +77,43 @@ public class EmployeesEditController implements Initializable {
         setEmployeesToTable();
     }
 
+    //pobranie pracowników z bazy danych i przypisanie do TableView
     public void setEmployeesToTable() {
-        //pobranie pracowników z bazy danych i przypisanie do TableView
+
         employeesTable.getItems().clear();
 
         List<Employee> result = Database.getSession().createQuery("FROM employees WHERE role != 'admin'", Employee.class).getResultList();
         employeesTable.getItems().addAll(FXCollections.observableList(result));
     }
 
+    //zerowanie wybranego elementu
     public void clearSelectedItem() {
+
         idField.setText("");
         nameField.setText("");
-        surnameCol.setText("");
+        surnameField.setText("");
         emailField.setText("");
-        phoneCol.setText("");
+        phoneField.setText("");
         roleChoice.setValue("");
 
         employeesTable.getSelectionModel().clearSelection();
     }
 
+    //przypisanie wybranego elementu do bloków wejściowych
     public void selectItemToEdit(MouseEvent mouseEvent) {
         selectedEmployee = employeesTable.getSelectionModel().getSelectedItem();
 
-        idField.setText(String.valueOf(selectedEmployee.getId()));
-        nameCol.setText(selectedEmployee.getName());
-        surnameCol.setText(selectedEmployee.getSurname());
-        emailField.setText(selectedEmployee.getEmail());
-        phoneCol.setText(selectedEmployee.getPhone());
-        roleChoice.setValue(selectedEmployee.getRole());
+        if(selectedEmployee != null) {
+            idField.setText(String.valueOf(selectedEmployee.getId()));
+            nameField.setText(selectedEmployee.getName());
+            surnameField.setText(selectedEmployee.getSurname());
+            emailField.setText(selectedEmployee.getEmail());
+            phoneField.setText(selectedEmployee.getPhone());
+            roleChoice.setValue(selectedEmployee.getRole());
+        }
     }
 
+    //edycja pracownika
     public void editEmployee(ActionEvent actionEvent) {
         try {
             Employee employee = Database.getSession().get(Employee.class, selectedEmployee.getId());
@@ -129,6 +136,7 @@ public class EmployeesEditController implements Initializable {
         }
     }
 
+    //dodawanie pracownika
     public void addEmployee(ActionEvent actionEvent) {
         try {
             Employee employee = new Employee();
@@ -151,8 +159,9 @@ public class EmployeesEditController implements Initializable {
         }
     }
 
+    //przypisywanie loginu i hasła pracownikowi
     public void setLoginAndPasswd(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/radek/restauracja/set-up-login-password.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/foodiez/set-up-login-password.fxml"));
         Parent root = fxmlLoader.load();
         SetUpEmployeeController controller = fxmlLoader.getController();
 

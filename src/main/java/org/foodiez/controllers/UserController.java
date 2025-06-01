@@ -13,7 +13,7 @@ import org.foodiez.classes.CurrentUser;
 import org.foodiez.classes.Database;
 import org.foodiez.classes.Dish;
 import org.hibernate.query.Query;
-import org.radek.foodiez.classes.*;
+import org.foodiez.classes.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,12 +44,10 @@ public class UserController implements Initializable {
         setDishesToList();
         showItems();
 
-        //zmiana filtra
         filterChoice.setOnAction(event -> {setDishesToList(); showItems();});
     }
 
     public void setDishesToList() {
-        //pobranie dań z bazy danych i przypisanie do TableView;
         dishes.clear();
 
         String filter = filterChoice.getValue();
@@ -100,6 +98,11 @@ public class UserController implements Initializable {
     public void logout(MouseEvent mouseEvent) throws IOException {
         SceneController sc = new SceneController();
         sc.switchScene("main-window.fxml");
+    }
+
+    public void goToCart() throws IOException {
+        SceneController sc = new SceneController();
+        sc.switchScene("cart-view.fxml");
     }
 
 }

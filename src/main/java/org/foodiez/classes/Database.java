@@ -49,7 +49,11 @@ public class Database {
                 .addAnnotatedClass(Dish.class)
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Customer.class)
-                .addAnnotatedClass(Order.class);
+                .addAnnotatedClass(Order.class)
+                .addAnnotatedClass(Cart.class)
+                .addAnnotatedClass(CartDish.class)
+                .addAnnotatedClass(CartDishId.class)
+                .addAnnotatedClass(PositionOrder.class);
 
         factory = config.buildSessionFactory();
 

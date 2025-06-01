@@ -11,7 +11,7 @@ import org.foodiez.classes.Database;
 import org.foodiez.classes.Customer;
 import org.foodiez.classes.Security;
 import org.foodiez.exceptions.EmptyFieldException;
-import org.radek.foodiez.exceptions.*;
+import org.foodiez.exceptions.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;

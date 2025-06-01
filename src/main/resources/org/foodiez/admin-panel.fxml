@@ -44,7 +44,7 @@
             </AnchorPane>
         </content>
       </Tab>
-    <Tab text="Pracownicy">
+    <Tab fx:id="employeesTab" text="Pracownicy">
       <fx:include source="employees-table-edit.fxml" />
     </Tab>
     <Tab text="Menu">

@@ -9,15 +9,15 @@ import jakarta.persistence.Id;
 public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String description;
-    private double price;
+    private Double price;
     private String category;
 
     public static String[] categories = {"Śniadanie", "Obiad", "Kolacja"};
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -41,7 +41,7 @@ public class Dish {
         this.description = description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 

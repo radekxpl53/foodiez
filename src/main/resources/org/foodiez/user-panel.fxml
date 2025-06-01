@@ -46,7 +46,15 @@
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="291.0" spacing="20.0">
                <children>
                   <ChoiceBox fx:id="filterChoice" prefHeight="0.0" prefWidth="150.0" />
-                  <Button mnemonicParsing="false" onMouseClicked="#logout" text="Wyloguj" />
+                  <Button mnemonicParsing="false" onAction="#goToCart">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/cart-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="33.0" prefWidth="127.0" text="Wyloguj" />
                </children>
             </HBox>
          </children>

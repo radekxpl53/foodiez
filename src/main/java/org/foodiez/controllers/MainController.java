@@ -16,9 +16,6 @@ import org.foodiez.exceptions.EmptyFieldException;
 import org.foodiez.exceptions.WrongPasswordException;
 import org.hibernate.query.Query;
 import javafx.scene.input.MouseEvent;
-import org.radek.foodiez.exceptions.*;
-import org.radek.foodiez.classes.*;
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -67,11 +64,10 @@ public class MainController implements Initializable {
 
                 if (Security.checkPasswd(password, dbPassword)) throw new WrongPasswordException();
 
-                if (role.equals("admin")) {
-                    CurrentUser.setEmployee((Employee) pracownik);
-                    SceneController sceneController = new SceneController();
-                    sceneController.switchScene("admin-panel.fxml");
-                }
+                CurrentUser.setEmployee((Employee) pracownik);
+                SceneController sceneController = new SceneController();
+                sceneController.switchScene("admin-panel.fxml");
+
                 return;
             } catch (NoResultException ignored) {}
 
@@ -103,7 +99,7 @@ public class MainController implements Initializable {
     public void startUserRegister(MouseEvent mouseEvent) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/org/radek/restauracja/register-panel.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/org/foodiez/register-panel.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setTitle("Foodiez! - Rejestracja");

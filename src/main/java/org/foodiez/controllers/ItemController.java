@@ -4,11 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import org.foodiez.classes.*;
-import org.radek.foodiez.classes.*;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class ItemController {
 
@@ -22,18 +21,55 @@ public class ItemController {
     public void setData(Dish dish) {
         this.dish = dish;
         nameLabel.setText(dish.getName());
-        priceLabel.setText(dish.getPrice() + "zł");
+        priceLabel.setText(String.format("%.2f zł", dish.getPrice()));
     }
 
-    public void orderDanie(MouseEvent mouseEvent) throws IOException {
-        Order order = new Order();
-        order.setDish(dish);
-        order.setCustomer(CurrentUser.getCustomer());
-        order.setOrderDate(Timestamp.valueOf(LocalDateTime.now()));
+    @FXML
+    public void addToCart(MouseEvent mouseEvent) throws IOException {
+        Customer currentUser = CurrentUser.getCustomer();
+        if (currentUser == null) {
+            InfoAlert.infoAlert("Błąd", "Nie jesteś zalogowany!");
+            return;
+        }
 
-        Database.addToDatabase(order);
+        Session session = Database.getSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
 
-        InfoAlert.infoAlert("Złożono zamówienie!", dish.getName() + " " + dish.getPrice() + "zł");
+            Cart cart = session.createQuery("FROM Cart c LEFT JOIN FETCH c.items WHERE c.customer = :customer AND c.status = 'ROBOCZY'", Cart.class)
+                    .setParameter("customer", currentUser)
+                    .uniqueResult();
+
+            if (cart == null) {
+                cart = new Cart(currentUser);
+                session.persist(cart);
+            }
+
+            boolean itemExistsInCart = false;
+            for (CartDish cd : cart.getItems()) {
+                if (cd.getDish().getId().equals(dish.getId())) {
+                    cd.setAmmount(cd.getAmmount() + 1);
+                    itemExistsInCart = true;
+                    session.merge(cd);
+                    break;
+                }
+            }
+
+            if (!itemExistsInCart) {
+                CartDish newCartItem = new CartDish(cart, dish, 1); // Domyślnie dodaj 1 sztukę
+                cart.getItems().add(newCartItem);
+            }
+
+            session.merge(cart);
+
+            tx.commit();
+            InfoAlert.infoAlert("Dodano do koszyka!", dish.getName() + " dodano do Twojego koszyka.");
+
+        } catch (Exception e) {
+            if (tx != null) tx.rollback();
+            e.printStackTrace();
+            InfoAlert.infoAlert("Błąd", "Nie udało się dodać do koszyka: " + e.getMessage());
+        }
     }
-
 }
