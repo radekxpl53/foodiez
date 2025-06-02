@@ -3,7 +3,7 @@ package org.foodiez.classes;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class Osoba {
+public class Person {
     private String name;
     private String surname;
     private String email;

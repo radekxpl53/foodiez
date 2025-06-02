@@ -1,18 +1,23 @@
 package org.foodiez.classes;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity(name = "dishes")
 public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column
     private String name;
+
+    @Column
     private String description;
+
+    @Column
     private Double price;
+
+    @Column
     private String category;
 
     public static String[] categories = {"Śniadanie", "Obiad", "Kolacja"};

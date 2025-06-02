@@ -29,7 +29,7 @@ public class Order {
     @Column(name = "order_date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp orderDate;
 
-    @Column(name = "full_price")
+    @Column(name = "full_price", length = 10, precision = 2)
     private Double fullPrice;
 
 

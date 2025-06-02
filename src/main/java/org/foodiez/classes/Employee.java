@@ -7,6 +7,8 @@ public class Employee extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "role")
     private String role;
 
     public static String[] roles = {"admin", "kierowca", "obsługa", "kucharz"};

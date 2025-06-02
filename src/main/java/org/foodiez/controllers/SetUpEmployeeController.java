@@ -55,6 +55,7 @@ public class SetUpEmployeeController implements Initializable {
                 currentStage = (Stage) loginField.getScene().getWindow();
                 currentStage.close();
             }
+
         } catch (EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
         }
