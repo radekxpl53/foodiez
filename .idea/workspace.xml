@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="zmiana nazwy package.">
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="zmiany w .gitignore">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,7 +254,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748691618960</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="drobne poprawki">
+      <option name="closed" value="true" />
+      <created>1748874068349</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748874068349</updated>
+    </task>
+    <task id="LOCAL-00014" summary="zmiany w .gitignore">
+      <option name="closed" value="true" />
+      <created>1748874255047</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1748874255047</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +302,8 @@
     <MESSAGE value="Rozbudowa systemu obsługi zamówień. Zmiany w oknie rejestracji." />
     <MESSAGE value="poprawiona przejrzystość kodu, zmiana nazwy projektu" />
     <MESSAGE value="zmiana nazwy package." />
-    <option name="LAST_COMMIT_MESSAGE" value="zmiana nazwy package." />
+    <MESSAGE value="drobne poprawki" />
+    <MESSAGE value="zmiany w .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="zmiany w .gitignore" />
   </component>
 </project>
