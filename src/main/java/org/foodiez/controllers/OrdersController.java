@@ -117,24 +117,14 @@ public class OrdersController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Session session = null;
-            Transaction tx = null;
             try {
-                session = Database.getSession();
-                tx = session.beginTransaction();
-
-                Order orderToUpdate = session.get(Order.class, selectedOrder.getId());
+                Order orderToUpdate = Database.getSession().get(Order.class, selectedOrder.getId());
                 if (orderToUpdate != null) {
                     orderToUpdate.setStatus("zrealizowane");
-                    session.merge(orderToUpdate);
-                    tx.commit();
+                    Database.editItemDatabase(orderToUpdate);
                     InfoAlert.infoAlert("Sukces", "Zamówienie zostało oznaczone jako zrealizowane.");
-                } else {
-                    InfoAlert.infoAlert("Błąd", "Nie znaleziono zamówienia w bazie danych.");
-                    if (tx != null) tx.rollback();
                 }
             } catch (Exception e) {
-                if (tx != null) tx.rollback();
                 e.printStackTrace();
                 InfoAlert.infoAlert("Błąd", "Nie udało się zrealizować zamówienia: " + e.getMessage());
             }
@@ -169,22 +159,13 @@ public class OrdersController implements Initializable {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Session session = Database.getSession();
-            Transaction tx = null;
             try {
-                tx = Database.getSession().beginTransaction();
-
-                Order orderToDelete = session.get(Order.class, selectedOrder.getId());
+                Order orderToDelete = Database.getSession().get(Order.class, selectedOrder.getId());
                 if (orderToDelete != null) {
-                    session.remove(orderToDelete); // Use remove
-                    tx.commit();
+                    Database.removeFromDatabase(orderToDelete);
                     InfoAlert.infoAlert("Sukces", "Zamówienie zostało usunięte.");
-                } else {
-                    InfoAlert.infoAlert("Błąd", "Nie znaleziono zamówienia w bazie danych.");
-                    if (tx != null) tx.rollback();
                 }
             } catch (Exception e) {
-                if (tx != null) tx.rollback();
                 e.printStackTrace();
                 InfoAlert.infoAlert("Błąd", "Nie udało się usunąć zamówienia: " + e.getMessage());
             }

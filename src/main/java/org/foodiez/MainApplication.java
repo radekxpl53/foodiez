@@ -27,6 +27,11 @@ public class MainApplication extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop() {
+        Database.close();
+    }
+
     public static void switchScene(Scene scene) {
         stage.setScene(scene);
     }

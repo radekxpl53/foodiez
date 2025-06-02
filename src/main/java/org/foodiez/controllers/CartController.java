@@ -111,9 +111,8 @@ public class CartController implements Initializable {
         Session session = Database.getSession();
         Transaction tx = null;
         try {
-            tx = session.beginTransaction();
             currentCart.setStatus("ZŁOŻONE");
-            session.merge(currentCart);
+            Database.editItemDatabase(currentCart);
 
             Query<Double> fullPriceQuery = session.createQuery("SELECT SUM(d.price * cd.ammount) FROM dishes d INNER JOIN carts_dishes cd ON d.id = cd.dish.id WHERE cd.cart.id = :id", Double.class);
             fullPriceQuery.setParameter("id", currentCart.getId());
@@ -121,9 +120,8 @@ public class CartController implements Initializable {
             order.setFullPrice(fullPriceQuery.uniqueResult());
             order.setOrderDate(Timestamp.valueOf(LocalDateTime.now()));
 
-            session.persist(order);
+            Database.addToDatabase(order);
 
-            tx.commit();
             InfoAlert.infoAlert("Zamówienie złożone!", "Twoje zamówienie zostało pomyślnie złożone.");
             currentCart = new Cart(CurrentUser.getCustomer());
             currentCart.setItems(new java.util.ArrayList<>());

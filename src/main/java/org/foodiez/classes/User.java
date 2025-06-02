@@ -19,7 +19,7 @@ public class User extends Person {
         return password;
     }
 
-    public void setPassword(String haslo) {
-        this.password = haslo;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

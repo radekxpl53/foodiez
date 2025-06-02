@@ -32,18 +32,15 @@ public class ItemController {
             return;
         }
 
-        Session session = Database.getSession();
-        Transaction tx = null;
         try {
-            tx = session.beginTransaction();
 
-            Cart cart = session.createQuery("FROM Cart c LEFT JOIN FETCH c.items WHERE c.customer = :customer AND c.status = 'ROBOCZY'", Cart.class)
+            Cart cart = Database.getSession().createQuery("FROM Cart c LEFT JOIN FETCH c.items WHERE c.customer = :customer AND c.status = 'ROBOCZY'", Cart.class)
                     .setParameter("customer", currentUser)
                     .uniqueResult();
 
             if (cart == null) {
                 cart = new Cart(currentUser);
-                session.persist(cart);
+                Database.addToDatabase(cart);
             }
 
             boolean itemExistsInCart = false;
@@ -51,7 +48,7 @@ public class ItemController {
                 if (cd.getDish().getId().equals(dish.getId())) {
                     cd.setAmmount(cd.getAmmount() + 1);
                     itemExistsInCart = true;
-                    session.merge(cd);
+                    Database.editItemDatabase(cd);
                     break;
                 }
             }
@@ -61,13 +58,10 @@ public class ItemController {
                 cart.getItems().add(newCartItem);
             }
 
-            session.merge(cart);
+            Database.editItemDatabase(cart);
 
-            tx.commit();
             InfoAlert.infoAlert("Dodano do koszyka!", dish.getName() + " dodano do Twojego koszyka.");
-
         } catch (Exception e) {
-            if (tx != null) tx.rollback();
             e.printStackTrace();
             InfoAlert.infoAlert("Błąd", "Nie udało się dodać do koszyka: " + e.getMessage());
         }

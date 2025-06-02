@@ -44,7 +44,7 @@ public class MainController implements Initializable {
         errorLabel.setVisible(false);
     }
 
-    public void userLogin(ActionEvent actionEvent) throws IOException {
+    public void userLogin(ActionEvent actionEvent) {
         String login = "", password = "";
         try {
             login = loginField.getText();
@@ -96,7 +96,7 @@ public class MainController implements Initializable {
         }
     }
 
-    public void startUserRegister(MouseEvent mouseEvent) throws IOException {
+    public void startUserRegister(MouseEvent mouseEvent)  {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/org/foodiez/register-panel.fxml"));

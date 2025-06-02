@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a6370c-a966-4daf-a151-f1f424dc3177" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="zmiana nazwy package.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Dish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Dish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Osoba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/classes/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/SetUpEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/SetUpEmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/foodiez/controllers/OrdersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +19,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -32,8 +42,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/radekxpl53/foodiez.git&quot;,
-    &quot;accountId&quot;: &quot;08cb037d-a9d1-4a19-a143-784e88e74675&quot;
+    &quot;url&quot;: &quot;https://github.com/radekxpl53/restauracja&quot;,
+    &quot;accountId&quot;: &quot;72af67fe-e241-47cc-a89c-7a7840a4dc13&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -44,30 +54,58 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2xv27H8ayeQnPorQfABvLLr5Rng" />
+  <component name="ProjectId" id="2wonOFUnja4bAsNMtapGVIIGB48" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.foodiez.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/rados/IdeaProjects/foodiez/src/main/resources/org/foodiez/pictures",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rados\IdeaProjects\foodiez\src\main\resources\org\foodiez\pictures" />
+      <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rados\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja\pictures" />
+      <recent name="C:\Users\rados\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja\icons" />
+      <recent name="C:\Users\rados\IdeaProjects\restauracja\src\main\resources\org\radek\restauracja" />
+      <recent name="C:\Users\rados\IdeaProjects\restauracja\src\main\resources" />
+      <recent name="C:\Users\ricot\IdeaProjects\restauracja\src\main\resources\META-INF" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.radek.restauracja" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="foodiez" type="Application" factoryName="Application">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.foodiez.MainApplication" />
       <module name="foodiez" />
       <method v="2">
@@ -78,26 +116,181 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\ricot\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d6a6370c-a966-4daf-a151-f1f424dc3177" name="Changes" comment="" />
-      <created>1748804059357</created>
+      <changelist id="ee29896f-2329-4723-a3ae-414b4a8d676b" name="Changes" comment="" />
+      <created>1746716764599</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1748804059357</updated>
-      <workItem from="1748804060446" duration="35000" />
-      <workItem from="1748804096470" duration="611000" />
-      <workItem from="1748815005787" duration="188000" />
+      <updated>1746716764599</updated>
+      <workItem from="1746716765689" duration="202000" />
+      <workItem from="1746730377124" duration="3970000" />
+      <workItem from="1746734376668" duration="5435000" />
+      <workItem from="1746783924992" duration="4897000" />
+      <workItem from="1746788946119" duration="399000" />
+      <workItem from="1746789356282" duration="13765000" />
+      <workItem from="1746805087696" duration="185000" />
+      <workItem from="1746810801382" duration="7952000" />
+      <workItem from="1746868366692" duration="1286000" />
+      <workItem from="1746872942931" duration="3494000" />
+      <workItem from="1747036225602" duration="961000" />
+      <workItem from="1747040049882" duration="191000" />
+      <workItem from="1747040633921" duration="255000" />
+      <workItem from="1747056419573" duration="719000" />
+      <workItem from="1747127825314" duration="3676000" />
+      <workItem from="1747135758998" duration="3615000" />
+      <workItem from="1747141552113" duration="7101000" />
+      <workItem from="1748167987464" duration="2140000" />
+      <workItem from="1748241687123" duration="1292000" />
+      <workItem from="1748267454172" duration="86000" />
+      <workItem from="1748336431164" duration="1393000" />
+      <workItem from="1748351413966" duration="6676000" />
+      <workItem from="1748625744976" duration="10499000" />
+      <workItem from="1748645032416" duration="19835000" />
+      <workItem from="1748680287431" duration="3831000" />
+      <workItem from="1748685383920" duration="14996000" />
+      <workItem from="1748771847978" duration="8292000" />
     </task>
+    <task id="LOCAL-00001" summary="zmodyfikowany plik .gitignore">
+      <option name="closed" value="true" />
+      <created>1746788603703</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746788603703</updated>
+    </task>
+    <task id="LOCAL-00002" summary="zmodyfikowany plik .gitignore">
+      <option name="closed" value="true" />
+      <created>1746788714272</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746788714272</updated>
+    </task>
+    <task id="LOCAL-00003" summary="zmiany umożliwiające dodawanie i edycję pól dań w bazie danych.">
+      <option name="closed" value="true" />
+      <created>1746792225366</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1746792225366</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dodane wyjątki umożliwiające wykrywanie będów związanych z logowanie. Alerty Popup informujące o błędach. Panel logowania (jeszcze bez rejestracji). Sprawdzanie zgodności logowania z bazą danych (jeszcze bez szyfrowania). Dodany panel administracyjy TabPane z zakładkami.">
+      <option name="closed" value="true" />
+      <created>1746802060723</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746802060723</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Usprawniony proces rejestracji i logowania.">
+      <option name="closed" value="true" />
+      <created>1746815860543</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746815860543</updated>
+    </task>
+    <task id="LOCAL-00006" summary="dodane odznaczanie dań.">
+      <option name="closed" value="true" />
+      <created>1746826644635</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1746826644635</updated>
+    </task>
+    <task id="LOCAL-00007" summary="prosty system zamawiania, obsługiwania zamówień">
+      <option name="closed" value="true" />
+      <created>1748267499245</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748267499245</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji">
+      <option name="closed" value="true" />
+      <created>1748645928585</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748645928585</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Rozbudowa systemu obsługi zamówień. Zmiany w oknie rejestracji.">
+      <option name="closed" value="true" />
+      <created>1748664421731</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748664421731</updated>
+    </task>
+    <task id="LOCAL-00010" summary="poprawiona przejrzystość kodu, zmiana nazwy projektu">
+      <option name="closed" value="true" />
+      <created>1748687984130</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748687984130</updated>
+    </task>
+    <task id="LOCAL-00011" summary="poprawiona przejrzystość kodu, zmiana nazwy projektu">
+      <option name="closed" value="true" />
+      <created>1748688237170</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748688237170</updated>
+    </task>
+    <task id="LOCAL-00012" summary="zmiana nazwy package.">
+      <option name="closed" value="true" />
+      <created>1748691618960</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748691618960</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="zmodyfikowany plik .gitignore" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="zmiany umożliwiające dodawanie i edycję pól dań w bazie danych." />
+    <MESSAGE value="Dodane wyjątki umożliwiające wykrywanie będów związanych z logowanie. Alerty Popup informujące o błędach. Panel logowania (jeszcze bez rejestracji). Sprawdzanie zgodności logowania z bazą danych (jeszcze bez szyfrowania). Dodany panel administracyjy TabPane z zakładkami." />
+    <MESSAGE value="Usprawniony proces rejestracji i logowania." />
+    <MESSAGE value="dodane odznaczanie dań." />
+    <MESSAGE value="prosty system zamawiania, obsługiwania zamówień" />
+    <MESSAGE value="Zmiany w systemie zamawiania. Zmiana wyglądu aplikacji" />
+    <MESSAGE value="Rozbudowa systemu obsługi zamówień. Zmiany w oknie rejestracji." />
+    <MESSAGE value="poprawiona przejrzystość kodu, zmiana nazwy projektu" />
+    <MESSAGE value="zmiana nazwy package." />
+    <option name="LAST_COMMIT_MESSAGE" value="zmiana nazwy package." />
   </component>
 </project>
