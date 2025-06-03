@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.foodiez.classes.Database;
 import org.foodiez.classes.Customer;
+import org.foodiez.classes.Email;
 import org.foodiez.classes.Security;
 import org.foodiez.exceptions.EmptyFieldException;
 import org.foodiez.exceptions.*;
@@ -50,16 +52,24 @@ public class RegisterController implements Initializable {
             customer.setLogin(getFieldValue(loginField, "login"));
             customer.setPassword(Security.hashPasswd(getFieldValue(passwordField, "password")));
             customer.setName(getFieldValue(nameField, "name"));
-            customer.setSurname(getFieldValue(surnameField, "surname"));
-            customer.setEmail(getFieldValue(emailField, "email"));
-            customer.setPhone(getFieldValue(phoneField, "phone"));
+            customer.setSurname( getFieldValue(surnameField, "surname"));
+
+            if (Email.isValid(getFieldValue(emailField, "email"))) {
+                customer.setEmail(getFieldValue(emailField, "email"));
+            } else throw new WrongEmailException();
+
+            String phone = getFieldValue(phoneField, "phone");
+            if ( phone.length() == 9 ) {
+                customer.setPhone(getFieldValue(phoneField, "phone"));
+            } else throw new WrongPhoneException();
+
             customer.setAddress(getFieldValue(addressField, "address"));
 
             Database.addToDatabase(customer);
             errorLabel.setVisible(false);
 
             Platform.exit();
-        } catch (EmptyFieldException e) {
+        } catch (EmptyFieldException | WrongEmailException | WrongPhoneException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setVisible(true);
         }

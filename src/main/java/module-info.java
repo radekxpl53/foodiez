@@ -8,6 +8,7 @@ module org.radek.restauracja {
     requires bcrypt;
     requires org.postgresql.jdbc;
     requires org.apache.commons.validator;
+    requires mail;
 
     opens org.foodiez to javafx.fxml, org.hibernate.orm.core;
     exports org.foodiez;
