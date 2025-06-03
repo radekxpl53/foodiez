@@ -50,20 +50,20 @@ public class RegisterController implements Initializable {
         try {
             Customer customer = new Customer();
             customer.setLogin(getFieldValue(loginField, "login"));
-            customer.setPassword(Security.hashPasswd(getFieldValue(passwordField, "password")));
-            customer.setName(getFieldValue(nameField, "name"));
-            customer.setSurname( getFieldValue(surnameField, "surname"));
+            customer.setPassword(Security.hashPasswd(getFieldValue(passwordField, "hasło")));
+            customer.setName(getFieldValue(nameField, "imie"));
+            customer.setSurname( getFieldValue(surnameField, "nazwisko"));
 
             if (Email.isValid(getFieldValue(emailField, "email"))) {
                 customer.setEmail(getFieldValue(emailField, "email"));
             } else throw new WrongEmailException();
 
-            String phone = getFieldValue(phoneField, "phone");
+            String phone = getFieldValue(phoneField, "telefon");
             if ( phone.length() == 9 ) {
-                customer.setPhone(getFieldValue(phoneField, "phone"));
+                customer.setPhone(getFieldValue(phoneField, "telefon"));
             } else throw new WrongPhoneException();
 
-            customer.setAddress(getFieldValue(addressField, "address"));
+            customer.setAddress(getFieldValue(addressField, "adres"));
 
             Database.addToDatabase(customer);
             errorLabel.setVisible(false);

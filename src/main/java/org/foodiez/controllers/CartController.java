@@ -8,7 +8,6 @@ import javafx.scene.layout.VBox;
 import org.foodiez.classes.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.net.URL;
@@ -114,10 +113,17 @@ public class CartController implements Initializable {
             currentCart.setStatus("ZŁOŻONE");
             Database.editItemDatabase(currentCart);
 
-            Query<Double> fullPriceQuery = session.createQuery("SELECT SUM(d.price * cd.ammount) FROM dishes d INNER JOIN carts_dishes cd ON d.id = cd.dish.id WHERE cd.cart.id = :id", Double.class);
-            fullPriceQuery.setParameter("id", currentCart.getId());
+            double total = 0.0;
 
-            order.setFullPrice(fullPriceQuery.uniqueResult());
+            for (CartDish cartDish : currentCart.getItems()) {
+                total += cartDish.getAmmount() * cartDish.getDish().getPrice();
+            }
+
+            total = (double) Math.round(total * 100) /100;;
+
+            System.out.println(total);
+
+            order.setFullPrice(total);
             order.setOrderDate(Timestamp.valueOf(LocalDateTime.now()));
 
             Database.addToDatabase(order);

@@ -51,7 +51,7 @@ public class OrdersController implements Initializable {
         );
 
         fullPriceCol.setCellValueFactory(cellData ->
-            new SimpleStringProperty(cellData.getValue().getFullPrice() + " zł")
+            new SimpleStringProperty((Double)cellData.getValue().getFullPrice() + " zł")
         );
 
         statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
