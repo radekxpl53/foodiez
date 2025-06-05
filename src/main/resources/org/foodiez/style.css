@@ -313,3 +313,29 @@
 .radio-button .text {
     -fx-fill: #333333;
 }
+
+.welcome-message-header {
+    -fx-font-size: 21;
+    -fx-font-weight: bold;
+}
+
+.welcome-message-text {
+    -fx-font-size: 21;
+}
+
+.welcome-message-app-title {
+    -fx-font-size: 21;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1abba1;
+}
+
+.welcome-message-user-title {
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+}
+
+.scroll-pane-cart {
+    -fx-border-color: #1abba1;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}

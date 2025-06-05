@@ -12,8 +12,6 @@ public class InfoBoxController {
     private Label titleLabel;
     @FXML
     private Label contentLabel;
-    @FXML
-    private Button button;
 
     public void setTitle(String title) {
         titleLabel.setText(title);

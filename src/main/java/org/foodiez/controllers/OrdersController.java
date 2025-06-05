@@ -11,10 +11,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
-import org.foodiez.classes.*;
+import org.foodiez.models.*;
+import org.foodiez.util.Database;
+import org.foodiez.util.InfoAlert;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.foodiez.util.DateFormatterUtil;
+import org.foodiez.util.DateFormatter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,7 +56,7 @@ public class OrdersController implements Initializable {
         );
 
         statusCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus()));
-        dateCol.setCellValueFactory(cellData -> new SimpleStringProperty(DateFormatterUtil.format(cellData.getValue().getOrderDate())));
+        dateCol.setCellValueFactory(cellData -> new SimpleStringProperty(DateFormatter.format(cellData.getValue().getOrderDate())));
 
         setButtonsDisabled(true);
 

@@ -1,4 +1,4 @@
-package org.foodiez.classes;
+package org.foodiez.util;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 

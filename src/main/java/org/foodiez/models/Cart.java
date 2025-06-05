@@ -1,4 +1,4 @@
-package org.foodiez.classes;
+package org.foodiez.models;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;

@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -30,16 +32,36 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Button>
-            <TextField fx:id="idField" promptText="Id" styleClass="text-field" />
             <TextField fx:id="nameField" promptText="Nazwa" styleClass="text-field" />
             <TextArea fx:id="descriptionArea" prefHeight="200.0" prefWidth="200.0" promptText="Opis" styleClass="text-field" wrapText="true" />
             <TextField fx:id="priceField" promptText="Cena" styleClass="text-field" />
             <ChoiceBox fx:id="categoryChoice" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="181.0" styleClass="choice-box" />
             <HBox alignment="CENTER" prefHeight="34.0" prefWidth="176.0" spacing="10.0" styleClass="hbox-panel">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addDish" prefHeight="33.0" prefWidth="55.0" styleClass="button" text="+" />
-                  <Button mnemonicParsing="false" onAction="#editDish" prefHeight="33.0" prefWidth="125.0" styleClass="button" text="Edytuj" />
-                  <Button mnemonicParsing="false" onAction="#removeDish" prefHeight="33.0" prefWidth="70.0" styleClass="button" text="-" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#addDish" prefHeight="33.0" prefWidth="55.0" styleClass="button">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/add-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#editDish" prefHeight="33.0" prefWidth="125.0" styleClass="button">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/edit-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#removeDish" prefHeight="33.0" prefWidth="70.0" styleClass="button" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/delete-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </HBox>
          </children>

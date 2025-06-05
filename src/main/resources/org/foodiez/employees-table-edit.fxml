@@ -7,6 +7,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -31,18 +33,38 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin></Button>
-            <TextField fx:id="idField" promptText="Id" />
             <TextField fx:id="nameField" promptText="Imie" />
             <TextField fx:id="surnameField" promptText="Nazwisko" />
             <TextField fx:id="emailField" promptText="Email" />
             <TextField fx:id="phoneField" promptText="Telefon" />
             <ChoiceBox fx:id="roleChoice" prefHeight="25.0" prefWidth="175.0" />
-            <Button mnemonicParsing="false" onAction="#setLoginAndPasswd" text="Przypisz login i hasło" />
+            <Button fx:id="setupButton" mnemonicParsing="false" onAction="#setLoginAndPasswd" text="Przypisz login i hasło" />
             <HBox alignment="CENTER" prefHeight="64.0" prefWidth="179.0" spacing="10.0" styleClass="hbox-panel">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addEmployee" prefHeight="33.0" prefWidth="0.0" text="+" />
-                  <Button mnemonicParsing="false" onAction="#editEmployee" prefHeight="33.0" prefWidth="150.0" text="Edytuj" />
-                  <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="94.0" text="-" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#addEmployee" prefHeight="33.0" prefWidth="0.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/add-user-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#editEmployee" prefHeight="5.0" prefWidth="13.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/edit-user-left-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#removeEmployee" prefHeight="33.0" prefWidth="94.0" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@pictures/delete-user-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </HBox>
             <Label fx:id="errorLabel" text="Label" textFill="RED" />

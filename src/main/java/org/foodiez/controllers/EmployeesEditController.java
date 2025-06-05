@@ -14,10 +14,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.commons.validator.routines.EmailValidator;
-import org.foodiez.classes.Database;
-import org.foodiez.classes.InfoAlert;
-import org.foodiez.classes.Employee;
+import org.foodiez.util.Database;
+import org.foodiez.models.Employee;
+import org.foodiez.exceptions.EmptyFieldException;
 import org.foodiez.exceptions.WrongEmailException;
+import org.foodiez.exceptions.WrongPhoneException;
+import org.foodiez.util.PhoneNumber;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +30,8 @@ public class EmployeesEditController implements Initializable {
 
     Employee selectedEmployee;
 
+    @FXML
+    public Button setupButton;
     @FXML
     private TableView<Employee> employeesTable;
     @FXML
@@ -40,8 +44,6 @@ public class EmployeesEditController implements Initializable {
     private TableColumn<Employee, String> phoneCol;
     @FXML
     private TableColumn<Employee, String> roleCol;
-    @FXML
-    private TextField idField;
     @FXML
     private TextField nameField;
     @FXML
@@ -59,7 +61,6 @@ public class EmployeesEditController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        idField.setDisable(true);
 
         errorLabel.setVisible(false);
 
@@ -79,7 +80,6 @@ public class EmployeesEditController implements Initializable {
 
     //pobranie pracowników z bazy danych i przypisanie do TableView
     public void setEmployeesToTable() {
-
         employeesTable.getItems().clear();
 
         List<Employee> result = Database.getSession().createQuery("FROM employees WHERE role != 'admin'", Employee.class).getResultList();
@@ -89,12 +89,13 @@ public class EmployeesEditController implements Initializable {
     //zerowanie wybranego elementu
     public void clearSelectedItem() {
 
-        idField.setText("");
         nameField.setText("");
         surnameField.setText("");
         emailField.setText("");
         phoneField.setText("");
         roleChoice.setValue("");
+
+        setupButton.setDisable(false);
 
         employeesTable.getSelectionModel().clearSelection();
     }
@@ -104,33 +105,56 @@ public class EmployeesEditController implements Initializable {
         selectedEmployee = employeesTable.getSelectionModel().getSelectedItem();
 
         if(selectedEmployee != null) {
-            idField.setText(String.valueOf(selectedEmployee.getId()));
+            if (selectedEmployee.getLogin() != null) {
+                setupButton.setDisable(true);
+            } else {
+                setupButton.setDisable(false);
+            }
+
             nameField.setText(selectedEmployee.getName());
             surnameField.setText(selectedEmployee.getSurname());
             emailField.setText(selectedEmployee.getEmail());
             phoneField.setText(selectedEmployee.getPhone());
             roleChoice.setValue(selectedEmployee.getRole());
         }
+
+
     }
 
     //edycja pracownika
-    public void editEmployee(ActionEvent actionEvent) {
+    public void editEmployee(ActionEvent actionEvent) throws IOException {
         try {
             Employee employee = Database.getSession().get(Employee.class, selectedEmployee.getId());
 
             if (employee != null) {
-                employee.setName(nameField.getText());
-                employee.setSurname(surnameField.getText());
-                employee.setEmail(emailField.getText());
-                employee.setPhone(phoneField.getText());
+                if (!nameField.getText().isEmpty()) {
+                    employee.setName(nameField.getText());
+                } else throw new EmptyFieldException("imie");
+
+                if (!surnameField.getText().isEmpty()) {
+                    employee.setSurname(surnameField.getText());
+                } else throw new EmptyFieldException("nazwisko");
+
+                if (EmailValidator.getInstance().isValid(emailField.getText())) {
+                    employee.setEmail(emailField.getText());
+                } else throw new WrongEmailException();
+
+                String phone = phoneField.getText();
+                if (PhoneNumber.isValid(phone)) {
+                    employee.setPhone(phoneField.getText());
+                } else throw new WrongPhoneException();
+
                 employee.setRole(roleChoice.getValue());
-                Database.editItemDatabase(employee);
+
+                Database.addToDatabase(employee);
+
+                setEmployeesToTable();
+
+                errorLabel.setVisible(false);
             }
 
             setEmployeesToTable();
-        } catch (NumberFormatException e) {
-            InfoAlert.emptyFieldAlert();
-        } catch (WrongEmailException e) {
+        } catch (WrongEmailException | WrongPhoneException | EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setVisible(true);
         }
@@ -140,23 +164,46 @@ public class EmployeesEditController implements Initializable {
     public void addEmployee(ActionEvent actionEvent) {
         try {
             Employee employee = new Employee();
-            employee.setName(nameField.getText());
-            employee.setSurname(surnameField.getText());
+            if (!nameField.getText().isEmpty()) {
+                employee.setName(nameField.getText());
+
+            } else throw new EmptyFieldException("imie");
+
+            if (!surnameField.getText().isEmpty()) {
+                employee.setSurname(surnameField.getText());
+            } else throw new EmptyFieldException("nazwisko");
+
             if (EmailValidator.getInstance().isValid(emailField.getText())) {
                 employee.setEmail(emailField.getText());
             } else throw new WrongEmailException();
-            employee.setPhone(phoneField.getText());
+
+            String phone = phoneField.getText();
+            if (PhoneNumber.isValid(phone)) {
+                employee.setPhone(phoneField.getText());
+            } else throw new WrongPhoneException();
+
             employee.setRole(roleChoice.getValue());
 
             Database.addToDatabase(employee);
 
             setEmployeesToTable();
-        } catch (NumberFormatException e) {
-            InfoAlert.emptyFieldAlert();
-        } catch (WrongEmailException e) {
+
+            errorLabel.setVisible(true);
+
+        } catch (WrongEmailException | WrongPhoneException | EmptyFieldException e) {
             errorLabel.setText(e.getMessage());
             errorLabel.setVisible(true);
         }
+    }
+
+    public void removeEmployee(ActionEvent actionEvent) {
+        Employee employee = Database.getSession().get(Employee.class, selectedEmployee.getId());
+
+        if (employee != null) {
+            Database.removeFromDatabase(employee);
+        }
+
+        setEmployeesToTable();
     }
 
     //przypisywanie loginu i hasła pracownikowi
@@ -171,6 +218,7 @@ public class EmployeesEditController implements Initializable {
         stage.setTitle("Przypisz login i hasło");
         stage.initModality(Modality.NONE);
         stage.setScene(new Scene(root));
+        stage.setResizable(false);
 
         stage.show();
     }

@@ -21,7 +21,7 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </Label>
-                <ScrollPane prefHeight="450.0" prefWidth="952.0" style="-fx-border-color: #1abba1; -fx-border-radius: 20px; -fx-background-radius: 20px;">
+                <ScrollPane prefHeight="450.0" prefWidth="952.0" styleClass="scroll-pane-cart">
                     <content>
                         <VBox fx:id="cartItemsVBox" prefWidth="930.0" spacing="10.0">
                             <padding>

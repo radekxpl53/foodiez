@@ -19,9 +19,9 @@
                      <children>
                         <HBox prefHeight="29.0" prefWidth="909.0">
                            <children>
-                              <Label style="-fx-font-size: 21; -fx-font-weight: bold;" text="Witaj " />
-                              <Label style="-fx-font-size: 21;" text="w panelu administracyjnym Systemu Zarządzania Restauracją " />
-                              <Label style="-fx-font-size: 21; -fx-font-weight: bold; -fx-text-fill: #1abba1;" text="Foodiez!" />
+                              <Label styleClass="welcome-message-header" text="Witaj " />
+                              <Label styleClass="welcome-message-text" text="w panelu administracyjnym Systemu Zarządzania Restauracją " />
+                              <Label styleClass="welcome-message-app-title" text="Foodiez!" />
                            </children>
                         </HBox>
                         <HBox prefHeight="47.0" prefWidth="909.0">
@@ -31,7 +31,7 @@
                         </HBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="11.0" prefWidth="959.0">
                            <children>
-                              <Label fx:id="currentUserLabel" style="-fx-font-size: 16; -fx-font-weight: bold;" text="Label" />
+                              <Label fx:id="currentUserLabel" styleClass="welcome-message-user-title" text="Label" />
                            </children>
                         </VBox>
                         <Button mnemonicParsing="false" onMouseClicked="#logout" text="Wyloguj">

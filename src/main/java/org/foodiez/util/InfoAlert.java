@@ -1,4 +1,4 @@
-package org.foodiez.classes;
+package org.foodiez.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

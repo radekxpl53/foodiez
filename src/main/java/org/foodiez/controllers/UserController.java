@@ -9,11 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import org.foodiez.classes.CurrentUser;
-import org.foodiez.classes.Database;
-import org.foodiez.classes.Dish;
+import org.foodiez.models.CurrentUser;
+import org.foodiez.util.Database;
+import org.foodiez.models.Dish;
+import org.foodiez.util.SceneController;
 import org.hibernate.query.Query;
-import org.foodiez.classes.*;
 
 import java.io.IOException;
 import java.net.URL;

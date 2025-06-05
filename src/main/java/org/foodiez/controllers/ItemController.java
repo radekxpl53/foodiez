@@ -3,9 +3,9 @@ package org.foodiez.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import org.foodiez.classes.*;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.foodiez.models.*;
+import org.foodiez.util.Database;
+import org.foodiez.util.InfoAlert;
 
 import java.io.IOException;
 

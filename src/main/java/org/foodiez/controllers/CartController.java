@@ -5,7 +5,10 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import org.foodiez.classes.*;
+import org.foodiez.models.*;
+import org.foodiez.util.Database;
+import org.foodiez.util.InfoAlert;
+import org.foodiez.util.SceneController;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -61,7 +64,6 @@ public class CartController implements Initializable {
         if (currentCart != null && currentCart.getItems() != null) {
             for (CartDish cartDish : currentCart.getItems()) {
                 if (cartDish.getDish() != null) {
-
                     VBox itemBox = new VBox();
                     itemBox.setSpacing(5);
                     itemBox.setPadding(new Insets(5));

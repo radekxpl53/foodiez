@@ -1,7 +1,6 @@
-package org.foodiez.classes;
+package org.foodiez.models;
 
 import jakarta.persistence.*;
-import javafx.geometry.Point2D;
 
 @Entity(name = "carts_dishes")
 @Table(name = "carts_dishes")

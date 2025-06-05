@@ -11,9 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import org.foodiez.classes.*;
+import org.foodiez.models.*;
 import org.foodiez.exceptions.EmptyFieldException;
 import org.foodiez.exceptions.WrongPasswordException;
+import org.foodiez.util.Database;
+import org.foodiez.util.SceneController;
+import org.foodiez.util.Security;
 import org.hibernate.query.Query;
 import javafx.scene.input.MouseEvent;
 

@@ -11,12 +11,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.foodiez.classes.Database;
-import org.foodiez.classes.Employee;
-import org.foodiez.classes.Security;
+import org.foodiez.util.Database;
+import org.foodiez.models.Employee;
+import org.foodiez.util.Security;
 import org.foodiez.exceptions.EmptyFieldException;
+import org.foodiez.exceptions.PasswordLengthException;
 
 public class SetUpEmployeeController implements Initializable {
+
+    private final int PASSWORD_LENGTH = 6;
 
     private Stage currentStage;
 
@@ -40,7 +43,9 @@ public class SetUpEmployeeController implements Initializable {
         String login = "", password = "";
         try {
             login = loginField.getText();
-            password = passwordField.getText();
+
+            if (passwordField.getText().length() < PASSWORD_LENGTH) throw new PasswordLengthException(PASSWORD_LENGTH);
+            else password = passwordField.getText();
 
             if (login.isEmpty() || password.isEmpty()) {
                 throw new EmptyFieldException("login lub hasło");
@@ -56,7 +61,8 @@ public class SetUpEmployeeController implements Initializable {
                 currentStage.close();
             }
 
-        } catch (EmptyFieldException e) {
+        } catch (EmptyFieldException | PasswordLengthException e) {
+            errorLabel.setVisible(true);
             errorLabel.setText(e.getMessage());
         }
     }

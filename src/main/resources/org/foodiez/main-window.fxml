@@ -22,7 +22,7 @@
             <Label style="-fx-font-size: 16;" text="Logowanie" />
             <TextField fx:id="loginField" promptText="login" />
             <PasswordField fx:id="passwordField" promptText="hasło" />
-            <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userLogin" text="Zaloguj" textAlignment="CENTER" />
+            <Button fx:id="loginBtn" defaultButton="true" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userLogin" text="Zaloguj" textAlignment="CENTER" />
             <Label fx:id="errorLabel" styleClass="error-label" text="label" />
             <Label onMouseClicked="#startUserRegister" styleClass="hyperlink-label" text="Nie masz konta? Zarejestruj się!" underline="true" />
          </children>

@@ -14,8 +14,10 @@ module org.radek.restauracja {
     exports org.foodiez;
     exports org.foodiez.controllers;
     opens org.foodiez.controllers to javafx.fxml, org.hibernate.orm.core;
-    exports org.foodiez.classes;
-    opens org.foodiez.classes to javafx.fxml, org.hibernate.orm.core;
+    exports org.foodiez.models;
+    opens org.foodiez.models to javafx.fxml, org.hibernate.orm.core;
     exports org.foodiez.exceptions;
     opens org.foodiez.exceptions to javafx.fxml, org.hibernate.orm.core;
+    exports org.foodiez.util;
+    opens org.foodiez.util to javafx.fxml, org.hibernate.orm.core;
 }

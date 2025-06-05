@@ -5,8 +5,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
-import org.foodiez.classes.CurrentUser;
-import org.foodiez.classes.Employee;
+import org.foodiez.models.CurrentUser;
+import org.foodiez.models.Employee;
+import org.foodiez.util.SceneController;
 
 import java.io.IOException;
 import java.net.URL;

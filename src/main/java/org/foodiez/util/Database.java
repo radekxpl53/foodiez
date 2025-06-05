@@ -1,5 +1,6 @@
-package org.foodiez.classes;
+package org.foodiez.util;
 
+import org.foodiez.models.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -52,8 +53,7 @@ public class Database {
                 .addAnnotatedClass(Order.class)
                 .addAnnotatedClass(Cart.class)
                 .addAnnotatedClass(CartDish.class)
-                .addAnnotatedClass(CartDishId.class)
-                .addAnnotatedClass(PositionOrder.class);
+                .addAnnotatedClass(CartDishId.class);
 
         factory = config.buildSessionFactory();
 

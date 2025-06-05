@@ -1,4 +1,4 @@
-package org.foodiez.classes;
+package org.foodiez.models;
 
 public class CurrentUser {
     private static Customer customer = new Customer();

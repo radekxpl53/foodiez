@@ -8,10 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.input.MouseEvent;
-import org.foodiez.classes.Dish;
-import org.foodiez.classes.Database;
-import org.foodiez.classes.InfoAlert;
+import org.foodiez.models.Dish;
+import org.foodiez.util.Database;
+import org.foodiez.util.InfoAlert;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -30,8 +31,6 @@ public class DishesEditController implements Initializable {
     private TableColumn<Dish, String> categoryCol;
 
     @FXML
-    private TextField idField;
-    @FXML
     private TextField nameField;
     @FXML
     private TextArea descriptionArea;
@@ -42,7 +41,6 @@ public class DishesEditController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        idField.setDisable(true);
 
         unselectBtn.setOnAction((ActionEvent e) -> clearSelectedItem());
 
@@ -65,36 +63,53 @@ public class DishesEditController implements Initializable {
         dishesTable.getItems().addAll(FXCollections.observableList(result));
     }
 
-    public void addDish(ActionEvent actionEvent) {
+    public void addDish(ActionEvent actionEvent) throws IOException {
         try {
             Dish dish = new Dish();
             dish.setName(nameField.getText());
             dish.setDescription(descriptionArea.getText());
-            dish.setPrice(Double.parseDouble(priceField.getText()));
+            double price = Double.parseDouble(priceField.getText());
+            if (price > 0) {
+                dish.setPrice(price);
+            } else {
+                InfoAlert.infoAlert("Błąd!", "Cena nie może być ujemna!");
+                return;
+            }
+
             dish.setCategory(categoryChoice.getValue());
 
             Database.addToDatabase(dish);
 
             setDishesToTable();
         } catch (NumberFormatException e) {
-            InfoAlert.emptyFieldAlert();
+            InfoAlert.infoAlert("Błąd!", "pola są puste!");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
     public void editDish(ActionEvent actionEvent) {
         try {
             Dish dish = new Dish();
-            dish.setId(Integer.parseInt(idField.getText()));
             dish.setName(nameField.getText());
             dish.setDescription(descriptionArea.getText());
-            dish.setPrice(Double.parseDouble(priceField.getText()));
             dish.setCategory(categoryChoice.getValue());
+
+            double price = Double.parseDouble(priceField.getText());
+            if (price > 0) {
+                dish.setPrice(price);
+            } else {
+                InfoAlert.infoAlert("Błąd!", "Cena nie może być ujemna!");
+                return;
+            }
 
             Database.editItemDatabase(dish);
 
             setDishesToTable();
         } catch (NumberFormatException e) {
             InfoAlert.emptyFieldAlert();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -114,7 +129,6 @@ public class DishesEditController implements Initializable {
     public void selectItemToEdit(MouseEvent mouseEvent) {
         Dish selectedDish = dishesTable.getSelectionModel().getSelectedItem();
 
-        idField.setText(String.valueOf(selectedDish.getId()));
         nameField.setText(selectedDish.getName());
         descriptionArea.setText(selectedDish.getDescription());
         priceField.setText(String.valueOf(selectedDish.getPrice()));
@@ -122,7 +136,6 @@ public class DishesEditController implements Initializable {
     }
 
     public void clearSelectedItem() {
-        idField.setText("");
         nameField.setText("");
         descriptionArea.setText("");
         priceField.setText("");
